@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\SaleDeedRegistry.Lib\Client\BaseEntity.cs" Link="BaseEntity.cs" />
+    <Compile Include="..\SaleDeedRegistry.Lib\Client\ReceiptResponse.cs" Link="ReceiptResponse.cs" />
+    <Compile Include="..\SaleDeedRegistry.Lib\Client\SaleRegistryFacade.cs" Link="SaleRegistryFacade.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="RestSharp" Version="106.6.10" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\SaleDeedRegistry.Lib\Entities\AssetInfo.cs" Link="AssetInfo.cs" />
+    <Compile Include="..\SaleDeedRegistry.Lib\Entities\AssetPersonInfo.cs" Link="AssetPersonInfo.cs" />
+    <Compile Include="..\SaleDeedRegistry.Lib\Entities\PropertyLocation.cs" Link="PropertyLocation.cs" />
+    <Compile Include="..\SaleDeedRegistry.Lib\Entities\PropertyMeasurment.cs" Link="PropertyMeasurment.cs" />
+  </ItemGroup>
+
+</Project>
