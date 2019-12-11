@@ -23,6 +23,7 @@ namespace SaleDeedRegistry.Desktop.UserControls
             txtWardNumber.Text = "";
             txtMunciple.Text = "";
             signatureBox.Image = null;
+            txtMeasurment.Text = "";
         }
 
         public string MarketPrice
