@@ -28,30 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.locationInfoUserControl1 = new SaleDeedRegistry.Desktop.UserControls.LocationInfoUserControl();
-            this.assetInfoUserControl1 = new SaleDeedRegistry.Desktop.UserControls.AssetInfoUserControl();
-            this.personInfoUserControl1 = new SaleDeedRegistry.Desktop.UserControls.PersonInfoUserControl();
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.personInfoUserControl1 = new SaleDeedRegistry.Desktop.UserControls.PersonInfoUserControl();
+            this.locationInfoUserControl1 = new SaleDeedRegistry.Desktop.UserControls.LocationInfoUserControl();
+            this.assetInfoUserControl1 = new SaleDeedRegistry.Desktop.UserControls.AssetInfoUserControl();
             this.SuspendLayout();
             // 
-            // locationInfoUserControl1
+            // btnCreate
             // 
-            this.locationInfoUserControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.locationInfoUserControl1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.locationInfoUserControl1.Location = new System.Drawing.Point(730, 29);
-            this.locationInfoUserControl1.Name = "locationInfoUserControl1";
-            this.locationInfoUserControl1.Size = new System.Drawing.Size(656, 516);
-            this.locationInfoUserControl1.TabIndex = 1;
+            this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreate.Location = new System.Drawing.Point(944, 576);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(192, 61);
+            this.btnCreate.TabIndex = 4;
+            this.btnCreate.Text = "Create";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
-            // assetInfoUserControl1
+            // btnClear
             // 
-            this.assetInfoUserControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.assetInfoUserControl1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.assetInfoUserControl1.Location = new System.Drawing.Point(31, 407);
-            this.assetInfoUserControl1.Name = "assetInfoUserControl1";
-            this.assetInfoUserControl1.Size = new System.Drawing.Size(670, 562);
-            this.assetInfoUserControl1.TabIndex = 0;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Location = new System.Drawing.Point(1194, 576);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(192, 61);
+            this.btnClear.TabIndex = 5;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // personInfoUserControl1
             // 
@@ -60,28 +64,25 @@
             this.personInfoUserControl1.Location = new System.Drawing.Point(31, 29);
             this.personInfoUserControl1.Name = "personInfoUserControl1";
             this.personInfoUserControl1.Size = new System.Drawing.Size(668, 369);
-            this.personInfoUserControl1.TabIndex = 2;
+            this.personInfoUserControl1.TabIndex = 1;
             // 
-            // btnCreate
+            // locationInfoUserControl1
             // 
-            this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.Location = new System.Drawing.Point(944, 576);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(192, 61);
-            this.btnCreate.TabIndex = 3;
-            this.btnCreate.Text = "Create";
-            this.btnCreate.UseVisualStyleBackColor = true;
+            this.locationInfoUserControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.locationInfoUserControl1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.locationInfoUserControl1.Location = new System.Drawing.Point(730, 29);
+            this.locationInfoUserControl1.Name = "locationInfoUserControl1";
+            this.locationInfoUserControl1.Size = new System.Drawing.Size(656, 516);
+            this.locationInfoUserControl1.TabIndex = 3;
             // 
-            // btnClear
+            // assetInfoUserControl1
             // 
-            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(1194, 576);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(192, 61);
-            this.btnClear.TabIndex = 4;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.assetInfoUserControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.assetInfoUserControl1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.assetInfoUserControl1.Location = new System.Drawing.Point(31, 407);
+            this.assetInfoUserControl1.Name = "assetInfoUserControl1";
+            this.assetInfoUserControl1.Size = new System.Drawing.Size(670, 636);
+            this.assetInfoUserControl1.TabIndex = 2;
             // 
             // FrmCreateAsset
             // 
@@ -96,7 +97,7 @@
             this.Controls.Add(this.assetInfoUserControl1);
             this.Name = "FrmCreateAsset";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Create Asset";
+            this.Text = "Create Property Asset";
             this.ResumeLayout(false);
 
         }

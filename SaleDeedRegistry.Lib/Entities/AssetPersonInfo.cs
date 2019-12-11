@@ -1,7 +1,12 @@
-﻿namespace SaleDeedRegistry.Lib.Entities
+﻿using SQLite.Net.Attributes;
+
+namespace SaleDeedRegistry.Lib.Entities
 {
-    public struct AssetPersonInfo
+    [Table("AssetPersonInfo")] // SQLite attribute
+    public class AssetPersonInfo
     {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }

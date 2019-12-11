@@ -1,7 +1,12 @@
-﻿namespace SaleDeedRegistry.Lib.Entities
+﻿using SQLite.Net.Attributes;
+
+namespace SaleDeedRegistry.Lib.Entities
 {
+    [Table("PropertyLocation")] // SQLite attribute
     public class PropertyLocation
     {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
         public string City { get; set; }

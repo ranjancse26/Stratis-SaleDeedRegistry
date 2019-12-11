@@ -1,24 +1,30 @@
-﻿namespace SaleDeedRegistry.Lib.Entities
+﻿using SQLite.Net.Attributes;
+using SQLiteNetExtensions.Attributes;
+
+namespace SaleDeedRegistry.Lib.Entities
 {
     public class AssetInfo
     {
-        public AssetInfo()
-        {
-            PersonInfo = new AssetPersonInfo();
-            Location = new PropertyLocation();
-            Measurment = new PropertyMeasurment();
-        }
-
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }        
         public string AssetId { get; set; }
         public string PropertyNumber { get; set; }
-        public AssetPersonInfo PersonInfo { get; set; }
+
+        [OneToOne]
+        [ForeignKey(typeof(AssetPersonInfo))]
+        public int PersonId { get; set; }
+
         public string WardNumber { get; set; }
         public string MuncipleNumber { get; set; }
-        public PropertyLocation Location { get; set; }
-        public PropertyMeasurment Measurment { get; set; }
-        public ulong MarketPrice { get; set; }
-        public ulong PurchacePrice { get; set; }
-        public ulong PropertyTax { get; set; }
+        
+        [OneToOne]
+        [ForeignKey(typeof(PropertyLocation))]
+        public int LocationId { get; set; }
+        
+        public long MarketPrice { get; set; }
+        public long PurchacePrice { get; set; }
+        public long PropertyTax { get; set; }
+        public long SquareFeet { get; set; }
         public string ESignature { get; set; }
     }
 }

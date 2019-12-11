@@ -36,13 +36,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtMarketPrice = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtPurchancePrice = new System.Windows.Forms.TextBox();
+            this.txtPurchacePrice = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtPropertyTax = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.signatureBox = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnBrowseSignature = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtMeasurment = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.signatureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +72,7 @@
             this.txtWardNumber.Location = new System.Drawing.Point(218, 69);
             this.txtWardNumber.Name = "txtWardNumber";
             this.txtWardNumber.Size = new System.Drawing.Size(423, 30);
-            this.txtWardNumber.TabIndex = 9;
+            this.txtWardNumber.TabIndex = 8;
             // 
             // label2
             // 
@@ -88,7 +90,7 @@
             this.txtMunciple.Location = new System.Drawing.Point(218, 124);
             this.txtMunciple.Name = "txtMunciple";
             this.txtMunciple.Size = new System.Drawing.Size(423, 30);
-            this.txtMunciple.TabIndex = 11;
+            this.txtMunciple.TabIndex = 9;
             // 
             // label3
             // 
@@ -103,34 +105,34 @@
             // txtMarketPrice
             // 
             this.txtMarketPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMarketPrice.Location = new System.Drawing.Point(218, 185);
+            this.txtMarketPrice.Location = new System.Drawing.Point(218, 174);
             this.txtMarketPrice.Name = "txtMarketPrice";
             this.txtMarketPrice.Size = new System.Drawing.Size(423, 30);
-            this.txtMarketPrice.TabIndex = 13;
+            this.txtMarketPrice.TabIndex = 10;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 186);
+            this.label4.Location = new System.Drawing.Point(3, 174);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(148, 29);
             this.label4.TabIndex = 12;
             this.label4.Text = "Market Price";
             // 
-            // txtPurchancePrice
+            // txtPurchacePrice
             // 
-            this.txtPurchancePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPurchancePrice.Location = new System.Drawing.Point(218, 248);
-            this.txtPurchancePrice.Name = "txtPurchancePrice";
-            this.txtPurchancePrice.Size = new System.Drawing.Size(423, 30);
-            this.txtPurchancePrice.TabIndex = 15;
+            this.txtPurchacePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPurchacePrice.Location = new System.Drawing.Point(218, 228);
+            this.txtPurchacePrice.Name = "txtPurchacePrice";
+            this.txtPurchacePrice.Size = new System.Drawing.Size(423, 30);
+            this.txtPurchacePrice.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 249);
+            this.label5.Location = new System.Drawing.Point(3, 228);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(176, 29);
             this.label5.TabIndex = 14;
@@ -139,16 +141,16 @@
             // txtPropertyTax
             // 
             this.txtPropertyTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPropertyTax.Location = new System.Drawing.Point(218, 314);
+            this.txtPropertyTax.Location = new System.Drawing.Point(218, 286);
             this.txtPropertyTax.Name = "txtPropertyTax";
             this.txtPropertyTax.Size = new System.Drawing.Size(423, 30);
-            this.txtPropertyTax.TabIndex = 17;
+            this.txtPropertyTax.TabIndex = 12;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 314);
+            this.label6.Location = new System.Drawing.Point(3, 286);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(150, 29);
             this.label6.TabIndex = 16;
@@ -157,7 +159,7 @@
             // signatureBox
             // 
             this.signatureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.signatureBox.Location = new System.Drawing.Point(218, 379);
+            this.signatureBox.Location = new System.Drawing.Point(218, 404);
             this.signatureBox.Name = "signatureBox";
             this.signatureBox.Size = new System.Drawing.Size(423, 108);
             this.signatureBox.TabIndex = 18;
@@ -167,7 +169,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 379);
+            this.label7.Location = new System.Drawing.Point(7, 404);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(116, 29);
             this.label7.TabIndex = 19;
@@ -177,23 +179,43 @@
             // 
             this.btnBrowseSignature.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBrowseSignature.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnBrowseSignature.Location = new System.Drawing.Point(416, 506);
+            this.btnBrowseSignature.Location = new System.Drawing.Point(416, 533);
             this.btnBrowseSignature.Name = "btnBrowseSignature";
             this.btnBrowseSignature.Size = new System.Drawing.Size(225, 42);
             this.btnBrowseSignature.TabIndex = 20;
             this.btnBrowseSignature.Text = "Browse";
             this.btnBrowseSignature.UseVisualStyleBackColor = true;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(7, 347);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(146, 29);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Measurment";
+            // 
+            // txtMeasurment
+            // 
+            this.txtMeasurment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMeasurment.Location = new System.Drawing.Point(218, 347);
+            this.txtMeasurment.Name = "txtMeasurment";
+            this.txtMeasurment.Size = new System.Drawing.Size(423, 30);
+            this.txtMeasurment.TabIndex = 13;
+            // 
             // AssetInfoUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtMeasurment);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.btnBrowseSignature);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.signatureBox);
             this.Controls.Add(this.txtPropertyTax);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtPurchancePrice);
+            this.Controls.Add(this.txtPurchacePrice);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtMarketPrice);
             this.Controls.Add(this.label4);
@@ -204,7 +226,7 @@
             this.Controls.Add(this.txtPropertyNumber);
             this.Controls.Add(this.label1);
             this.Name = "AssetInfoUserControl";
-            this.Size = new System.Drawing.Size(658, 568);
+            this.Size = new System.Drawing.Size(658, 589);
             ((System.ComponentModel.ISupportInitialize)(this.signatureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -221,12 +243,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtMarketPrice;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtPurchancePrice;
+        private System.Windows.Forms.TextBox txtPurchacePrice;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtPropertyTax;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox signatureBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnBrowseSignature;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtMeasurment;
     }
 }

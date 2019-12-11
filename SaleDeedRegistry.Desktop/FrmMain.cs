@@ -1,19 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
+using SaleDeedRegistry.Desktop.Constants;
 
 namespace SaleDeedRegistry.Desktop
 {
     public partial class FrmMain : Form
     {
+        string dbPath = "";
+
         public FrmMain()
         {
+            string exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            dbPath = string.Format($"{exePath}\\{DBConstant.SqlLiteDBFileName}");
+
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
         }

@@ -8,7 +8,11 @@
     <Compile Include="..\SaleDeedRegistry.Lib\Entities\AssetInfo.cs" Link="AssetInfo.cs" />
     <Compile Include="..\SaleDeedRegistry.Lib\Entities\AssetPersonInfo.cs" Link="AssetPersonInfo.cs" />
     <Compile Include="..\SaleDeedRegistry.Lib\Entities\PropertyLocation.cs" Link="PropertyLocation.cs" />
-    <Compile Include="..\SaleDeedRegistry.Lib\Entities\PropertyMeasurment.cs" Link="PropertyMeasurment.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SQLite.Net.Core-PCL" Version="3.1.1" />
+    <PackageReference Include="SQLiteNetExtensions" Version="2.1.0" />
   </ItemGroup>
 
 </Project>

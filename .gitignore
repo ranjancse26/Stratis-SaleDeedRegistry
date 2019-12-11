@@ -3,3 +3,16 @@
 ################################################################################
 
 /.vs
+/packages
+/SaleDeedRegistry.ApiClient
+/SaleDeedRegistry.Console
+/SaleDeedRegistry.Contract
+/SaleDeedRegistry.Desktop/bin/Debug
+/SaleDeedRegistry.Desktop/obj/Debug
+/SaleDeedRegistry.Domain/bin/Debug/netcoreapp3.0
+/SaleDeedRegistry.Domain/obj
+/SaleDeedRegistry.Tests/bin/Debug/netcoreapp2.1
+/SaleDeedRegistry.Tests/obj/Debug/netcoreapp2.1
+/SaleDeedRegistry.Tests/obj
+/SaleDeedRegistry.Wallet/bin/Debug
+/SaleDeedRegistry.Wallet/obj/Debug

@@ -32,8 +32,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtMiddleName = new System.Windows.Forms.TextBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbGender = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -78,23 +78,23 @@
             this.txtFirstName.Location = new System.Drawing.Point(221, 18);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(423, 30);
-            this.txtFirstName.TabIndex = 3;
+            this.txtFirstName.TabIndex = 1;
             // 
-            // textBox1
+            // txtMiddleName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(221, 78);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(423, 30);
-            this.textBox1.TabIndex = 4;
+            this.txtMiddleName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMiddleName.Location = new System.Drawing.Point(221, 78);
+            this.txtMiddleName.Name = "txtMiddleName";
+            this.txtMiddleName.Size = new System.Drawing.Size(423, 30);
+            this.txtMiddleName.TabIndex = 2;
             // 
-            // textBox2
+            // txtLastName
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(221, 135);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(423, 30);
-            this.textBox2.TabIndex = 5;
+            this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLastName.Location = new System.Drawing.Point(221, 135);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(423, 30);
+            this.txtLastName.TabIndex = 3;
             // 
             // label4
             // 
@@ -117,7 +117,7 @@
             this.cmbGender.Location = new System.Drawing.Point(221, 192);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(243, 33);
-            this.cmbGender.TabIndex = 7;
+            this.cmbGender.TabIndex = 4;
             // 
             // label5
             // 
@@ -135,7 +135,7 @@
             this.txtAaddhar.Location = new System.Drawing.Point(221, 251);
             this.txtAaddhar.Name = "txtAaddhar";
             this.txtAaddhar.Size = new System.Drawing.Size(423, 30);
-            this.txtAaddhar.TabIndex = 9;
+            this.txtAaddhar.TabIndex = 5;
             // 
             // label6
             // 
@@ -153,7 +153,7 @@
             this.txtPAN.Location = new System.Drawing.Point(221, 307);
             this.txtPAN.Name = "txtPAN";
             this.txtPAN.Size = new System.Drawing.Size(423, 30);
-            this.txtPAN.TabIndex = 11;
+            this.txtPAN.TabIndex = 6;
             // 
             // PersonInfoUserControl
             // 
@@ -165,8 +165,8 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cmbGender);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtLastName);
+            this.Controls.Add(this.txtMiddleName);
             this.Controls.Add(this.txtFirstName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -185,8 +185,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtFirstName;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtMiddleName;
+        private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbGender;
         private System.Windows.Forms.Label label5;

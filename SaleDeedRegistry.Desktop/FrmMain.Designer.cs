@@ -31,8 +31,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.assetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createNewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageAssetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saleDeedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +52,7 @@
             // 
             this.assetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createNewToolStripMenuItem,
-            this.manageAssetToolStripMenuItem});
+            this.searchToolStripMenuItem});
             this.assetToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.assetToolStripMenuItem.Name = "assetToolStripMenuItem";
             this.assetToolStripMenuItem.Size = new System.Drawing.Size(179, 36);
@@ -65,18 +65,18 @@
             this.createNewToolStripMenuItem.Text = "Create";
             this.createNewToolStripMenuItem.Click += new System.EventHandler(this.createNewToolStripMenuItem_Click);
             // 
-            // manageAssetToolStripMenuItem
-            // 
-            this.manageAssetToolStripMenuItem.Name = "manageAssetToolStripMenuItem";
-            this.manageAssetToolStripMenuItem.Size = new System.Drawing.Size(224, 36);
-            this.manageAssetToolStripMenuItem.Text = "Update";
-            // 
             // saleDeedToolStripMenuItem
             // 
             this.saleDeedToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saleDeedToolStripMenuItem.Name = "saleDeedToolStripMenuItem";
             this.saleDeedToolStripMenuItem.Size = new System.Drawing.Size(137, 36);
             this.saleDeedToolStripMenuItem.Text = "Sale Deed";
+            // 
+            // searchToolStripMenuItem
+            // 
+            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(224, 36);
+            this.searchToolStripMenuItem.Text = "Search";
             // 
             // FrmMain
             // 
@@ -100,8 +100,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem assetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createNewToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem manageAssetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saleDeedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
     }
 }
 

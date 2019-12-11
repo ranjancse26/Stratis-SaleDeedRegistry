@@ -52,7 +52,7 @@
             this.txtAddressLine1.Location = new System.Drawing.Point(207, 22);
             this.txtAddressLine1.Name = "txtAddressLine1";
             this.txtAddressLine1.Size = new System.Drawing.Size(423, 30);
-            this.txtAddressLine1.TabIndex = 5;
+            this.txtAddressLine1.TabIndex = 13;
             // 
             // label1
             // 
@@ -70,7 +70,7 @@
             this.txtAddressLine2.Location = new System.Drawing.Point(207, 76);
             this.txtAddressLine2.Name = "txtAddressLine2";
             this.txtAddressLine2.Size = new System.Drawing.Size(423, 30);
-            this.txtAddressLine2.TabIndex = 7;
+            this.txtAddressLine2.TabIndex = 14;
             // 
             // label2
             // 
@@ -88,7 +88,7 @@
             this.txtCity.Location = new System.Drawing.Point(207, 133);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(423, 30);
-            this.txtCity.TabIndex = 9;
+            this.txtCity.TabIndex = 15;
             // 
             // label3
             // 
@@ -106,7 +106,7 @@
             this.txtState.Location = new System.Drawing.Point(207, 193);
             this.txtState.Name = "txtState";
             this.txtState.Size = new System.Drawing.Size(423, 30);
-            this.txtState.TabIndex = 11;
+            this.txtState.TabIndex = 16;
             // 
             // label4
             // 
@@ -124,7 +124,7 @@
             this.txtZipCode.Location = new System.Drawing.Point(207, 250);
             this.txtZipCode.Name = "txtZipCode";
             this.txtZipCode.Size = new System.Drawing.Size(423, 30);
-            this.txtZipCode.TabIndex = 13;
+            this.txtZipCode.TabIndex = 17;
             // 
             // label5
             // 
@@ -142,7 +142,7 @@
             this.txtCountry.Location = new System.Drawing.Point(207, 314);
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.Size = new System.Drawing.Size(423, 30);
-            this.txtCountry.TabIndex = 15;
+            this.txtCountry.TabIndex = 18;
             // 
             // label6
             // 
@@ -160,7 +160,7 @@
             this.txtLatitude.Location = new System.Drawing.Point(207, 375);
             this.txtLatitude.Name = "txtLatitude";
             this.txtLatitude.Size = new System.Drawing.Size(423, 30);
-            this.txtLatitude.TabIndex = 17;
+            this.txtLatitude.TabIndex = 19;
             // 
             // label7
             // 
@@ -178,7 +178,7 @@
             this.txtLongitude.Location = new System.Drawing.Point(207, 437);
             this.txtLongitude.Name = "txtLongitude";
             this.txtLongitude.Size = new System.Drawing.Size(423, 30);
-            this.txtLongitude.TabIndex = 19;
+            this.txtLongitude.TabIndex = 20;
             // 
             // label8
             // 
