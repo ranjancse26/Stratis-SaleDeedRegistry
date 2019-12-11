@@ -2,6 +2,7 @@
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
+using ContactManagement;
 using SaleDeedRegistry.Desktop.Constants;
 using SaleDeedRegistry.Desktop.Signature;
 
@@ -32,6 +33,12 @@ namespace SaleDeedRegistry.Desktop
         {
             FrmSignaturePad signaturePad = new FrmSignaturePad();
             signaturePad.ShowDialog();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAboutBox frmAboutBox = new FrmAboutBox();
+            frmAboutBox.ShowDialog();
         }
     }
 }
