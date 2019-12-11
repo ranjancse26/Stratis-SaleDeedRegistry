@@ -3,6 +3,7 @@ using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 using SaleDeedRegistry.Desktop.Constants;
+using SaleDeedRegistry.Desktop.Signature;
 
 namespace SaleDeedRegistry.Desktop
 {
@@ -17,12 +18,20 @@ namespace SaleDeedRegistry.Desktop
 
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
+            this.IsMdiContainer = true;
         }
 
         private void createNewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmCreateAsset frmCreateAsset = new FrmCreateAsset();
-            frmCreateAsset.ShowDialog();
+            frmCreateAsset.MdiParent = this;
+            frmCreateAsset.Show();
+        }
+
+        private void signaturePadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmSignaturePad signaturePad = new FrmSignaturePad();
+            signaturePad.ShowDialog();
         }
     }
 }

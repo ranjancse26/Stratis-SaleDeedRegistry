@@ -10,6 +10,8 @@ namespace SaleDeedRegistry.Desktop.UserControls
         public AssetInfoUserControl()
         {
             InitializeComponent();
+            openFileDialog1.FileName = "";
+            openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
         }
 
         public void Clear()
@@ -145,6 +147,15 @@ namespace SaleDeedRegistry.Desktop.UserControls
         {
             MessageBox.Show(message, "Error", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
+        }
+
+        private void btnBrowseSignature_Click(object sender, EventArgs e)
+        {
+            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string selectedFile = openFileDialog1.FileName;
+                signatureBox.Image = Image.FromFile(selectedFile);
+            }
         }
     }
 }

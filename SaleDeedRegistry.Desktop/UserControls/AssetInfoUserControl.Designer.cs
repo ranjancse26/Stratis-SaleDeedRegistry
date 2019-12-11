@@ -45,6 +45,7 @@
             this.btnBrowseSignature = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txtMeasurment = new System.Windows.Forms.TextBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.signatureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -179,12 +180,13 @@
             // 
             this.btnBrowseSignature.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBrowseSignature.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnBrowseSignature.Location = new System.Drawing.Point(416, 533);
+            this.btnBrowseSignature.Location = new System.Drawing.Point(520, 470);
             this.btnBrowseSignature.Name = "btnBrowseSignature";
-            this.btnBrowseSignature.Size = new System.Drawing.Size(225, 42);
+            this.btnBrowseSignature.Size = new System.Drawing.Size(121, 42);
             this.btnBrowseSignature.TabIndex = 20;
             this.btnBrowseSignature.Text = "Browse";
             this.btnBrowseSignature.UseVisualStyleBackColor = true;
+            this.btnBrowseSignature.Click += new System.EventHandler(this.btnBrowseSignature_Click);
             // 
             // label8
             // 
@@ -203,6 +205,10 @@
             this.txtMeasurment.Name = "txtMeasurment";
             this.txtMeasurment.Size = new System.Drawing.Size(423, 30);
             this.txtMeasurment.TabIndex = 13;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // AssetInfoUserControl
             // 
@@ -226,7 +232,7 @@
             this.Controls.Add(this.txtPropertyNumber);
             this.Controls.Add(this.label1);
             this.Name = "AssetInfoUserControl";
-            this.Size = new System.Drawing.Size(658, 589);
+            this.Size = new System.Drawing.Size(658, 525);
             ((System.ComponentModel.ISupportInitialize)(this.signatureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -252,5 +258,6 @@
         private System.Windows.Forms.Button btnBrowseSignature;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtMeasurment;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

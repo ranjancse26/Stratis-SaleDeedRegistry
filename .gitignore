@@ -16,3 +16,5 @@
 /SaleDeedRegistry.Tests/obj
 /SaleDeedRegistry.Wallet/bin/Debug
 /SaleDeedRegistry.Wallet/obj/Debug
+/SaleDeedRegistry.Desktop/obj/x86/Debug
+/SaleDeedRegistry.Desktop/bin/x86/Debug
