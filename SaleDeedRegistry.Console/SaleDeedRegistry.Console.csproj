@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -14,11 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SaleDeedRegistry.Lib\SaleDeedRegistry.Lib.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Constant\" />
-    <Folder Include="Helper\" />
   </ItemGroup>
 
 </Project>
