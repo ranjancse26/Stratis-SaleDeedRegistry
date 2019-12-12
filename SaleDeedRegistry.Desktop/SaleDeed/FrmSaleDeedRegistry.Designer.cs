@@ -37,12 +37,14 @@
             this.btnTransferOwnership = new System.Windows.Forms.Button();
             this.txtAssetID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnInitApplication
             // 
             this.btnInitApplication.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInitApplication.Location = new System.Drawing.Point(294, 81);
+            this.btnInitApplication.Location = new System.Drawing.Point(205, 91);
             this.btnInitApplication.Name = "btnInitApplication";
             this.btnInitApplication.Size = new System.Drawing.Size(411, 99);
             this.btnInitApplication.TabIndex = 0;
@@ -53,7 +55,7 @@
             // btnStartReviewProcess
             // 
             this.btnStartReviewProcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStartReviewProcess.Location = new System.Drawing.Point(294, 213);
+            this.btnStartReviewProcess.Location = new System.Drawing.Point(205, 223);
             this.btnStartReviewProcess.Name = "btnStartReviewProcess";
             this.btnStartReviewProcess.Size = new System.Drawing.Size(411, 99);
             this.btnStartReviewProcess.TabIndex = 1;
@@ -64,7 +66,7 @@
             // btnCompleteReviewProcess
             // 
             this.btnCompleteReviewProcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCompleteReviewProcess.Location = new System.Drawing.Point(294, 346);
+            this.btnCompleteReviewProcess.Location = new System.Drawing.Point(205, 356);
             this.btnCompleteReviewProcess.Name = "btnCompleteReviewProcess";
             this.btnCompleteReviewProcess.Size = new System.Drawing.Size(411, 99);
             this.btnCompleteReviewProcess.TabIndex = 2;
@@ -78,7 +80,7 @@
             this.lblState.BackColor = System.Drawing.Color.Transparent;
             this.lblState.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblState.ForeColor = System.Drawing.Color.Red;
-            this.lblState.Location = new System.Drawing.Point(288, 732);
+            this.lblState.Location = new System.Drawing.Point(199, 742);
             this.lblState.Name = "lblState";
             this.lblState.Size = new System.Drawing.Size(104, 32);
             this.lblState.TabIndex = 3;
@@ -87,7 +89,7 @@
             // btnPayApplicationTransferFee
             // 
             this.btnPayApplicationTransferFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPayApplicationTransferFee.Location = new System.Drawing.Point(294, 476);
+            this.btnPayApplicationTransferFee.Location = new System.Drawing.Point(205, 486);
             this.btnPayApplicationTransferFee.Name = "btnPayApplicationTransferFee";
             this.btnPayApplicationTransferFee.Size = new System.Drawing.Size(411, 99);
             this.btnPayApplicationTransferFee.TabIndex = 4;
@@ -98,7 +100,7 @@
             // btnTransferOwnership
             // 
             this.btnTransferOwnership.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTransferOwnership.Location = new System.Drawing.Point(294, 606);
+            this.btnTransferOwnership.Location = new System.Drawing.Point(205, 616);
             this.btnTransferOwnership.Name = "btnTransferOwnership";
             this.btnTransferOwnership.Size = new System.Drawing.Size(411, 99);
             this.btnTransferOwnership.TabIndex = 5;
@@ -109,7 +111,7 @@
             // txtAssetID
             // 
             this.txtAssetID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAssetID.Location = new System.Drawing.Point(294, 13);
+            this.txtAssetID.Location = new System.Drawing.Point(205, 23);
             this.txtAssetID.Name = "txtAssetID";
             this.txtAssetID.Size = new System.Drawing.Size(411, 38);
             this.txtAssetID.TabIndex = 6;
@@ -119,18 +121,39 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(101, 13);
+            this.label2.Location = new System.Drawing.Point(12, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(142, 32);
             this.label2.TabIndex = 7;
             this.label2.Text = "Asset ID : ";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(652, 91);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(732, 624);
+            this.richTextBox1.TabIndex = 8;
+            this.richTextBox1.Text = "";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(646, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(223, 32);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Developer Mode";
             // 
             // FrmSaleDeedRegistry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1024, 759);
+            this.ClientSize = new System.Drawing.Size(1410, 786);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtAssetID);
             this.Controls.Add(this.btnTransferOwnership);
@@ -159,5 +182,7 @@
         private System.Windows.Forms.Button btnTransferOwnership;
         private System.Windows.Forms.TextBox txtAssetID;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
