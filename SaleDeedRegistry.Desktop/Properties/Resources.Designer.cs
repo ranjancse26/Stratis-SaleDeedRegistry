@@ -63,6 +63,16 @@ namespace SaleDeedRegistry.Desktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap light_blue_background {
+            get {
+                object obj = ResourceManager.GetObject("light-blue-background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SaleDeed {
             get {
                 object obj = ResourceManager.GetObject("SaleDeed", resourceCulture);

@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <Folder Include="Constant\" />
+    <Folder Include="Helper\" />
   </ItemGroup>
 
 </Project>

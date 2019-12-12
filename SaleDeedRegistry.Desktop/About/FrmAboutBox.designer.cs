@@ -40,7 +40,7 @@ namespace ContactManagement
             // 
             // tableLayoutPanel
             // 
-            this.tableLayoutPanel.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.tableLayoutPanel.BackColor = System.Drawing.Color.LightSkyBlue;
             this.tableLayoutPanel.ColumnCount = 2;
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.11752F));
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.88248F));
@@ -77,7 +77,7 @@ namespace ContactManagement
             this.logoPictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.logoPictureBox.Name = "logoPictureBox";
             this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 6);
-            this.logoPictureBox.Size = new System.Drawing.Size(416, 499);
+            this.logoPictureBox.Size = new System.Drawing.Size(417, 499);
             this.logoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logoPictureBox.TabIndex = 12;
             this.logoPictureBox.TabStop = false;
@@ -86,12 +86,12 @@ namespace ContactManagement
             // 
             this.labelProductName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProductName.ForeColor = System.Drawing.Color.White;
-            this.labelProductName.Location = new System.Drawing.Point(432, 0);
+            this.labelProductName.ForeColor = System.Drawing.Color.Black;
+            this.labelProductName.Location = new System.Drawing.Point(433, 0);
             this.labelProductName.Margin = new System.Windows.Forms.Padding(8, 0, 4, 0);
             this.labelProductName.MaximumSize = new System.Drawing.Size(0, 21);
             this.labelProductName.Name = "labelProductName";
-            this.labelProductName.Size = new System.Drawing.Size(466, 21);
+            this.labelProductName.Size = new System.Drawing.Size(465, 21);
             this.labelProductName.TabIndex = 19;
             this.labelProductName.Text = "Product Name : Stratis Property Management";
             this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -100,12 +100,12 @@ namespace ContactManagement
             // 
             this.labelVersion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelVersion.ForeColor = System.Drawing.Color.White;
-            this.labelVersion.Location = new System.Drawing.Point(432, 50);
+            this.labelVersion.ForeColor = System.Drawing.Color.Black;
+            this.labelVersion.Location = new System.Drawing.Point(433, 50);
             this.labelVersion.Margin = new System.Windows.Forms.Padding(8, 0, 4, 0);
             this.labelVersion.MaximumSize = new System.Drawing.Size(0, 21);
             this.labelVersion.Name = "labelVersion";
-            this.labelVersion.Size = new System.Drawing.Size(466, 21);
+            this.labelVersion.Size = new System.Drawing.Size(465, 21);
             this.labelVersion.TabIndex = 0;
             this.labelVersion.Text = "Version: 1.0.0.1";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -114,12 +114,12 @@ namespace ContactManagement
             // 
             this.labelCopyright.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCopyright.ForeColor = System.Drawing.Color.White;
-            this.labelCopyright.Location = new System.Drawing.Point(432, 100);
+            this.labelCopyright.ForeColor = System.Drawing.Color.Black;
+            this.labelCopyright.Location = new System.Drawing.Point(433, 100);
             this.labelCopyright.Margin = new System.Windows.Forms.Padding(8, 0, 4, 0);
             this.labelCopyright.MaximumSize = new System.Drawing.Size(0, 21);
             this.labelCopyright.Name = "labelCopyright";
-            this.labelCopyright.Size = new System.Drawing.Size(466, 21);
+            this.labelCopyright.Size = new System.Drawing.Size(465, 21);
             this.labelCopyright.TabIndex = 21;
             this.labelCopyright.Text = "Copyright : Ranjan Dailata";
             this.labelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -128,13 +128,13 @@ namespace ContactManagement
             // 
             this.textBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDescription.Location = new System.Drawing.Point(432, 204);
+            this.textBoxDescription.Location = new System.Drawing.Point(433, 204);
             this.textBoxDescription.Margin = new System.Windows.Forms.Padding(8, 4, 4, 4);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ReadOnly = true;
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxDescription.Size = new System.Drawing.Size(466, 245);
+            this.textBoxDescription.Size = new System.Drawing.Size(465, 245);
             this.textBoxDescription.TabIndex = 23;
             this.textBoxDescription.TabStop = false;
             this.textBoxDescription.Text = "The Stratis Property Management with the Sale Deed Registry Managment Software";
@@ -143,7 +143,7 @@ namespace ContactManagement
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.okButton.ForeColor = System.Drawing.Color.White;
+            this.okButton.ForeColor = System.Drawing.Color.Black;
             this.okButton.Location = new System.Drawing.Point(759, 462);
             this.okButton.Margin = new System.Windows.Forms.Padding(4);
             this.okButton.Name = "okButton";
@@ -156,7 +156,7 @@ namespace ContactManagement
             this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(55)))), ((int)(((byte)(99)))));
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(926, 529);
             this.Controls.Add(this.tableLayoutPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

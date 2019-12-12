@@ -59,8 +59,9 @@
             // 
             // personInfoUserControl1
             // 
+            this.personInfoUserControl1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.personInfoUserControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.personInfoUserControl1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.personInfoUserControl1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.personInfoUserControl1.Location = new System.Drawing.Point(31, 29);
             this.personInfoUserControl1.Name = "personInfoUserControl1";
             this.personInfoUserControl1.Size = new System.Drawing.Size(668, 369);
@@ -68,8 +69,9 @@
             // 
             // locationInfoUserControl1
             // 
+            this.locationInfoUserControl1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.locationInfoUserControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.locationInfoUserControl1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.locationInfoUserControl1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.locationInfoUserControl1.Location = new System.Drawing.Point(730, 29);
             this.locationInfoUserControl1.Name = "locationInfoUserControl1";
             this.locationInfoUserControl1.Size = new System.Drawing.Size(656, 516);
@@ -77,8 +79,9 @@
             // 
             // assetInfoUserControl1
             // 
+            this.assetInfoUserControl1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.assetInfoUserControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.assetInfoUserControl1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.assetInfoUserControl1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.assetInfoUserControl1.Location = new System.Drawing.Point(31, 407);
             this.assetInfoUserControl1.Name = "assetInfoUserControl1";
             this.assetInfoUserControl1.Size = new System.Drawing.Size(670, 636);
@@ -88,7 +91,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.BackColor = System.Drawing.SystemColors.Highlight;
+            this.BackgroundImage = global::SaleDeedRegistry.Desktop.Properties.Resources.light_blue_background;
             this.ClientSize = new System.Drawing.Size(1491, 1055);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnCreate);

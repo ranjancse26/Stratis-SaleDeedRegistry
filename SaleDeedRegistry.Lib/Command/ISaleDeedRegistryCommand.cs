@@ -1,10 +1,10 @@
-﻿using SaleDeedRegistry.Lib;
+﻿using SaleDeedRegistry.Lib.Client;
 using System.Threading.Tasks;
 
 namespace SaleDeedRegistry.Lib.Command
 {
     public interface ISaleDeedRegistryCommand
     {
-        Task<CommandResponse> Execute(SaleDeedRegistryBaseRequest requestObject);
+        Task<ReceiptResponse> Execute(SaleDeedRegistryBaseRequest requestObject);
     }
 }

@@ -81,6 +81,7 @@
             this.saleDeedToolStripMenuItem.Name = "saleDeedToolStripMenuItem";
             this.saleDeedToolStripMenuItem.Size = new System.Drawing.Size(137, 36);
             this.saleDeedToolStripMenuItem.Text = "Sale Deed";
+            this.saleDeedToolStripMenuItem.Click += new System.EventHandler(this.saleDeedToolStripMenuItem_Click);
             // 
             // signaturePadToolStripMenuItem
             // 
@@ -103,8 +104,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.BackgroundImage = global::SaleDeedRegistry.Desktop.Properties.Resources.light_blue_background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1368, 689);
             this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -1,4 +1,5 @@
 ﻿using System;
+using SaleDeedRegistry.Lib.Actors;
 using SaleDeedRegistry.Lib.Helpers;
 
 namespace SaleDeedRegistry.Console
@@ -24,13 +25,13 @@ namespace SaleDeedRegistry.Console
                 System.Console.WriteLine("Initiating the " +
                     "Sale Deed Application Process");
 
-                supervisor.InitApplication();
-                supervisor.StartTheReviewProcess();
-                supervisor.CompleteTheReviewProcess();
+                supervisor.InitApplication().ConfigureAwait(true);
+                supervisor.StartTheReviewProcess().ConfigureAwait(true);
+                supervisor.CompleteTheReviewProcess().ConfigureAwait(true);
 
-                propertyBuyer.PayTransferFee(payee.GetPayee());
+                propertyBuyer.PayTransferFee(payee.GetPayee()).ConfigureAwait(true);
                 supervisor.TransferOwnership(propertySeller.GetOwnerAddress(),
-                    propertyBuyer.GetBuyerAddress());
+                    propertyBuyer.GetBuyerAddress()).ConfigureAwait(true);
 
                 System.Console.WriteLine("Completed executing the " +
                     "Sale Deed Application Process");

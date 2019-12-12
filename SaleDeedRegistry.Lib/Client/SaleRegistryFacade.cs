@@ -86,7 +86,7 @@ namespace SaleDeedRegistry.Lib
         /// <param name="transactionId"></param>
         /// <param name="waitTimeInMinutes"></param>
         /// <returns>ReceiptResponse</returns>
-        public ReceiptResponse TryReceiptResponse(string transactionId,
+        public async Task<ReceiptResponse> TryReceiptResponse(string transactionId,
             int waitTimeInMinutes = 10, int sleepTime = 1000)
         {
             DateTime dateTime = DateTime.Now;
@@ -96,7 +96,7 @@ namespace SaleDeedRegistry.Lib
             // Wait until you get a Receipt Info
             while (dateTime < dateTimeMax)
             {
-                receiptInfo = GetReceiptInfo(transactionId).Result;
+                receiptInfo = await GetReceiptInfo(transactionId);
                 if (receiptInfo != null)
                 {
                     if(receiptInfo.success)

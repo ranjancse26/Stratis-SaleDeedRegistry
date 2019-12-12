@@ -1,6 +1,4 @@
-﻿using CefSharp;
-using CefSharp.WinForms;
-using System.IO;
+﻿using System.IO;
 using System.Windows.Forms;
 
 namespace SaleDeedRegistry.Desktop.Signature
@@ -10,6 +8,7 @@ namespace SaleDeedRegistry.Desktop.Signature
         public FrmSignaturePad()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
         }
 
         private void FrmSignaturePad_Load(object sender, System.EventArgs e)

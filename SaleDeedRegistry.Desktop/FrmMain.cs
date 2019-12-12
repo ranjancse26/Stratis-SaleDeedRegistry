@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using ContactManagement;
 using SaleDeedRegistry.Desktop.Constants;
+using SaleDeedRegistry.Desktop.SaleDeed;
 using SaleDeedRegistry.Desktop.Signature;
 
 namespace SaleDeedRegistry.Desktop
@@ -39,6 +40,12 @@ namespace SaleDeedRegistry.Desktop
         {
             FrmAboutBox frmAboutBox = new FrmAboutBox();
             frmAboutBox.ShowDialog();
+        }
+
+        private void saleDeedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmSaleDeedRegistry frmSaleDeedRegistry = new FrmSaleDeedRegistry();
+            frmSaleDeedRegistry.ShowDialog();
         }
     }
 }
