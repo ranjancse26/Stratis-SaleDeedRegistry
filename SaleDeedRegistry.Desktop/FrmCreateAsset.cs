@@ -33,6 +33,7 @@ namespace SaleDeedRegistry.Desktop
             personInfoUserControl1.Clear();
             locationInfoUserControl1.Clear();
             assetInfoUserControl1.Clear();
+            lblAssetId.Text = "";
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -104,12 +105,22 @@ namespace SaleDeedRegistry.Desktop
 
                 // Persist the Asset Info
                 assetManagementRepository.InsertAsset(assetInfo);
+
+                lblAssetId.Visible = true;
+                lblAssetId.Text = string.Format("{0} - {1}", 
+                    "AssetId", assetInfo.AssetId);
+
                 MessageBox.Show("Saved Successfully!");
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void FrmCreateAsset_Load(object sender, EventArgs e)
+        {
+            lblAssetId.Visible = false;
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Reflection;
 using Moq.Protected;
 using Stratis.SmartContracts.CLR.Serialization;
 using System.ComponentModel;
+using SaleDeedRegistry.Lib.Helpers;
 
 namespace SaleDeedRegistry.Tests
 {
@@ -23,7 +24,7 @@ namespace SaleDeedRegistry.Tests
         Address buyer;
         Address payee;
         Address propertyOwner;
-        string assetId;
+        string assetId = "";
         
         public SaleDeedContractTest()
         {
@@ -37,7 +38,7 @@ namespace SaleDeedRegistry.Tests
             this.mockContractState.Setup(s => s.ContractLogger).Returns(this.mockContractLogger.Object);
             this.mockContractState.Setup(x => x.InternalTransactionExecutor).Returns(mockInternalExecutor.Object);
 
-            assetId = Guid.NewGuid().ToString();
+            assetId = UniqueIdHelper.GenerateId(); 
             this.sender = "0x0000000000000000000000000000000000000001".HexToAddress();
             this.buyer = "0x0000000000000000000000000000000000000002".HexToAddress();
             this.propertyOwner = "0x0000000000000000000000000000000000000003".HexToAddress();
@@ -61,13 +62,13 @@ namespace SaleDeedRegistry.Tests
                 new SaleDeedRegistryContract(mockContractState.Object, payee);
 
             Address address = "0x0000000000000000000000000000000000000002".HexToAddress();
-            this.mockPersistentState.Setup(s => s.GetUInt32($"PropertyState[" + address + "]"))
+            this.mockPersistentState.Setup(s => s.GetUInt32($"PropertyState[" + assetId + "]"))
              .Returns((uint)PropertyStateType.InProgress);
 
             saleDeedRegistry.InitApplication(propertyOwner, buyer, assetId);
 
             // Get the Property State and validate
-            uint state = saleDeedRegistry.GetPropertyState(buyer);
+            uint state = saleDeedRegistry.GetPropertyState(assetId);
             Assert.True(state == (uint)PropertyStateType.InProgress);
         }
 
@@ -79,16 +80,16 @@ namespace SaleDeedRegistry.Tests
 
             Address address = "0x0000000000000000000000000000000000000002".HexToAddress();
 
-            this.mockPersistentState.Setup(s => s.GetUInt32($"PropertyState["+ address + "]"))
+            this.mockPersistentState.Setup(s => s.GetUInt32($"PropertyState["+ assetId + "]"))
                 .Returns((uint)PropertyStateType.InProgress);
 
             saleDeedRegistry.StartReviewProcess(propertyOwner, buyer, assetId);
 
-            this.mockPersistentState.Setup(s => s.GetUInt32($"PropertyState[" + address + "]"))
+            this.mockPersistentState.Setup(s => s.GetUInt32($"PropertyState[" + assetId + "]"))
                .Returns((uint)PropertyStateType.UnderReview);
 
             // Get the Property State and validate
-            uint state = saleDeedRegistry.GetPropertyState(buyer);
+            uint state = saleDeedRegistry.GetPropertyState(assetId);
             Assert.True(state == (uint)PropertyStateType.UnderReview);
         }
 
@@ -100,7 +101,7 @@ namespace SaleDeedRegistry.Tests
 
             Address address = "0x0000000000000000000000000000000000000002".HexToAddress();
 
-            this.mockPersistentState.Setup(s => s.GetUInt32($"PropertyState[" + address + "]"))
+            this.mockPersistentState.Setup(s => s.GetUInt32($"PropertyState[" + assetId + "]"))
                 .Returns((uint)PropertyStateType.UnderReview);
 
             this.mockPersistentState.Setup(s => s.GetAddress($"PropertyOwner[" + assetId + "]"))
@@ -108,11 +109,11 @@ namespace SaleDeedRegistry.Tests
 
             saleDeedRegistry.CompleteReviewProcess(propertyOwner, buyer, assetId);
 
-            this.mockPersistentState.Setup(s => s.GetUInt32($"PropertyState[" + address + "]"))
+            this.mockPersistentState.Setup(s => s.GetUInt32($"PropertyState[" + assetId + "]"))
                .Returns((uint)PropertyStateType.ReviewComplete);
 
             // Get the Property State and validate
-            uint state = saleDeedRegistry.GetPropertyState(buyer);
+            uint state = saleDeedRegistry.GetPropertyState(assetId);
             Assert.True(state == (uint)PropertyStateType.ReviewComplete);
         }
 
@@ -125,13 +126,13 @@ namespace SaleDeedRegistry.Tests
 
             Address address = "0x0000000000000000000000000000000000000002".HexToAddress();
 
-            this.mockPersistentState.Setup(s => s.GetUInt32($"PropertyState[" + address + "]"))
+            this.mockPersistentState.Setup(s => s.GetUInt32($"PropertyState[" + assetId + "]"))
                 .Returns((uint)PropertyStateType.Rejected);
 
-            saleDeedRegistry.RejectApplication(buyer);
+            saleDeedRegistry.RejectApplication(assetId);
 
             // Get the Property State and validate
-            uint state = saleDeedRegistry.GetPropertyState(buyer);
+            uint state = saleDeedRegistry.GetPropertyState(assetId);
             Assert.True(state == (uint)PropertyStateType.Rejected);
         }
 
@@ -143,13 +144,13 @@ namespace SaleDeedRegistry.Tests
 
             Address address = "0x0000000000000000000000000000000000000002".HexToAddress();
 
-            this.mockPersistentState.Setup(s => s.GetUInt32($"PropertyState[" + address + "]"))
+            this.mockPersistentState.Setup(s => s.GetUInt32($"PropertyState[" + assetId + "]"))
                 .Returns((uint)PropertyStateType.InProgress);
 
-            saleDeedRegistry.ReApply(buyer);
+            saleDeedRegistry.ReApply(assetId);
 
             // Get the Property State and validate
-            uint state = saleDeedRegistry.GetPropertyState(buyer);
+            uint state = saleDeedRegistry.GetPropertyState(assetId);
             Assert.True(state == (uint)PropertyStateType.InProgress);
         }
 
@@ -163,7 +164,7 @@ namespace SaleDeedRegistry.Tests
 
             Address address = "0x0000000000000000000000000000000000000002".HexToAddress();
 
-            this.mockPersistentState.Setup(s => s.GetUInt32($"PropertyState[" + address + "]"))
+            this.mockPersistentState.Setup(s => s.GetUInt32($"PropertyState[" + assetId + "]"))
                 .Returns((uint)PropertyStateType.ReviewComplete);
 
             this.mockPersistentState.Setup(s => s.GetAddress("PayeeAddress"))
@@ -179,13 +180,13 @@ namespace SaleDeedRegistry.Tests
                    It.IsAny<ulong>()))
                .Returns(transferResult.Object);
 
-            saleDeedRegistry.PayApplicationTransferFee(buyer, payee, 2000);
+            saleDeedRegistry.PayApplicationTransferFee(buyer, payee, assetId, 2000);
             
-            this.mockPersistentState.Setup(s => s.GetUInt32($"PropertyState[" + address + "]"))
+            this.mockPersistentState.Setup(s => s.GetUInt32($"PropertyState[" + assetId + "]"))
                .Returns((uint)PropertyStateType.PaidTransferFee);
 
             // Get the Property State and validate
-            uint state = saleDeedRegistry.GetPropertyState(buyer);
+            uint state = saleDeedRegistry.GetPropertyState(assetId);
             Assert.True(state == (uint)PropertyStateType.PaidTransferFee);
         }
 
@@ -197,7 +198,7 @@ namespace SaleDeedRegistry.Tests
 
             Address address = "0x0000000000000000000000000000000000000002".HexToAddress();
 
-            this.mockPersistentState.Setup(s => s.GetUInt32($"PropertyState[" + address + "]"))
+            this.mockPersistentState.Setup(s => s.GetUInt32($"PropertyState[" + assetId + "]"))
                 .Returns((uint)PropertyStateType.PaidTransferFee);
             
             this.mockPersistentState.Setup(s => s.GetAddress($"PropertyOwner[" + assetId + "]"))
@@ -209,13 +210,13 @@ namespace SaleDeedRegistry.Tests
             this.mockPersistentState.Setup(s => s.GetString($"AssetId[" + propertyOwner + "]"))
              .Returns(assetId);
 
-            saleDeedRegistry.TransferOwnership(propertyOwner, buyer);
+            saleDeedRegistry.TransferOwnership(propertyOwner, buyer, assetId);
 
-            this.mockPersistentState.Setup(s => s.GetUInt32($"PropertyState[" + address + "]"))
+            this.mockPersistentState.Setup(s => s.GetUInt32($"PropertyState[" + assetId + "]"))
                 .Returns((uint)PropertyStateType.Approved);
 
             // Get the Property State and validate
-            uint state = saleDeedRegistry.GetPropertyState(buyer);
+            uint state = saleDeedRegistry.GetPropertyState(assetId);
             Assert.True(state == (uint)PropertyStateType.Approved);
         }
     }

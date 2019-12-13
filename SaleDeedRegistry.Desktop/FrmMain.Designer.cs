@@ -87,8 +87,8 @@
             // 
             this.signaturePadToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signaturePadToolStripMenuItem.Name = "signaturePadToolStripMenuItem";
-            this.signaturePadToolStripMenuItem.Size = new System.Drawing.Size(169, 36);
-            this.signaturePadToolStripMenuItem.Text = "SignaturePad";
+            this.signaturePadToolStripMenuItem.Size = new System.Drawing.Size(176, 36);
+            this.signaturePadToolStripMenuItem.Text = "Signature Pad";
             this.signaturePadToolStripMenuItem.Click += new System.EventHandler(this.signaturePadToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem

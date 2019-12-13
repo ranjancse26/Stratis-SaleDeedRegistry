@@ -25,13 +25,13 @@ namespace SaleDeedRegistry.Console
                 System.Console.WriteLine("Initiating the " +
                     "Sale Deed Application Process");
 
-                supervisor.InitApplication().ConfigureAwait(true);
-                supervisor.StartTheReviewProcess().ConfigureAwait(true);
-                supervisor.CompleteTheReviewProcess().ConfigureAwait(true);
+                supervisor.InitApplication().Wait();
+                supervisor.StartTheReviewProcess().Wait();
+                supervisor.CompleteTheReviewProcess().Wait();
 
-                propertyBuyer.PayTransferFee(payee.GetPayee()).ConfigureAwait(true);
+                propertyBuyer.PayTransferFee(payee.GetPayee(), assetId).Wait();
                 supervisor.TransferOwnership(propertySeller.GetOwnerAddress(),
-                    propertyBuyer.GetBuyerAddress()).ConfigureAwait(true);
+                    propertyBuyer.GetBuyerAddress()).Wait();
 
                 System.Console.WriteLine("Completed executing the " +
                     "Sale Deed Application Process");

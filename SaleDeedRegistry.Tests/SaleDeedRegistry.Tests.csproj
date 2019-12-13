@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SaleDeedRegistry.Contract\SaleDeedRegistry.Contract.csproj" />
+    <ProjectReference Include="..\SaleDeedRegistry.Lib\SaleDeedRegistry.Lib.csproj" />
   </ItemGroup>
 
 

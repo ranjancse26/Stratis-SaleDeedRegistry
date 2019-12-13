@@ -173,6 +173,7 @@ namespace SaleDeedRegistry.Lib
                     dynamic expando = new ExpandoObject();
                     expando.buyerAddress = transferFeeObject.BuyerAddress;
                     expando.payeeAddress = transferFeeObject.PayeeAddress;
+                    expando.assetId = transferFeeObject.AssetId;
                     expando.fee = (ulong)transferFeeObject.Fees;
 
                     httpRequest.Content = new StringContent(JsonConvert.SerializeObject(expando));

@@ -100,8 +100,18 @@ namespace SaleDeedRegistry.Desktop.SaleDeed
 
         private async void btnPayApplicationTransferFee_Click(object sender, System.EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtAssetID.Text))
+            {
+                MessageBox.Show("Please specify the AssetId", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAssetID.Focus();
+                return;
+            }
+
+
             lblState.Text = "Please wait....";
-            receiptResponse = await propertyBuyer.PayTransferFee(payee.GetPayee());
+            receiptResponse = await propertyBuyer.PayTransferFee(payee.GetPayee(),
+                txtAssetID.Text.Trim());
             if (receiptResponse != null && receiptResponse.success)
             {
                 OutputResponseInformation(receiptResponse);

@@ -71,28 +71,30 @@ public class SaleDeedRegistryContract : SmartContract
         this.PersistentState.SetAddress($"PropertyOwner[{assetId}]", address);
     }
 
-    public uint GetPropertyState(Address address)
+    public uint GetPropertyState(string assetId)
     {
-        return this.PersistentState.GetUInt32($"PropertyState[{address}]");
+        return this.PersistentState.GetUInt32($"PropertyState[{assetId}]");
     }
 
-    private void SetPropertyState(Address address, uint state)
+    private void SetPropertyState(string assetId, uint state)
     {
-        this.PersistentState.SetUInt32($"PropertyState[{address}]", state);
+        this.PersistentState.SetUInt32($"PropertyState[{assetId}]", state);
     }
 
     #endregion
 
     /// <summary>
     /// Start the application process
-    /// </summary>
+    /// </summary
+    /// <param name="propertyOwnerAddress"></param>
     /// <param name="buyerAddress"></param>
+    /// <param name="assetId"></param>
     public void InitApplication(Address propertyOwnerAddress,
         Address buyerAddress, string assetId)
     {
         SetAssetId(propertyOwnerAddress, assetId);
         SetPropertyOwner(propertyOwnerAddress, assetId);
-        SetPropertyState(buyerAddress, (uint)PropertyStateType.InProgress);
+        SetPropertyState(assetId, (uint)PropertyStateType.InProgress);
         DoStateLogging(PropertyStateType.InProgress, "In-Progress");
     }
 
@@ -113,9 +115,9 @@ public class SaleDeedRegistryContract : SmartContract
     public void StartReviewProcess(Address propertyOwnerAddress,
         Address buyerAddress, string assetId)
     {
-        uint propState = GetPropertyState(buyerAddress);
+        uint propState = GetPropertyState(assetId);
         Assert(propState == (int)PropertyStateType.InProgress);
-        SetPropertyState(buyerAddress, (uint)PropertyStateType.UnderReview);
+        SetPropertyState(assetId, (uint)PropertyStateType.UnderReview);
         DoStateLogging(PropertyStateType.UnderReview, "Under Review");
     }
 
@@ -126,7 +128,7 @@ public class SaleDeedRegistryContract : SmartContract
     public void CompleteReviewProcess(Address propertyOwnerAddress,
         Address buyerAddress, string assetId)
     {
-        uint propState = GetPropertyState(buyerAddress);
+        uint propState = GetPropertyState(assetId);
         Address owner = GetPropertyOwner(assetId);
 
         Assert(owner == propertyOwnerAddress);
@@ -134,7 +136,7 @@ public class SaleDeedRegistryContract : SmartContract
         Assert(propState == (int)PropertyStateType.UnderReview);
 
         SetEncumbranceCleared(assetId, true);
-        SetPropertyState(buyerAddress, (uint)PropertyStateType.ReviewComplete);
+        SetPropertyState(assetId, (uint)PropertyStateType.ReviewComplete);
         DoStateLogging(PropertyStateType.ReviewComplete, "Review Complete");
     }    
 
@@ -142,19 +144,18 @@ public class SaleDeedRegistryContract : SmartContract
     /// Reject the application
     /// </summary>
     /// <param name="buyerAddress"></param>
-    public void RejectApplication(Address buyerAddress)
+    public void RejectApplication(string assetId)
     {
-        SetPropertyState(buyerAddress, (uint)PropertyStateType.Rejected);
+        SetPropertyState(assetId, (uint)PropertyStateType.Rejected);
         DoStateLogging(PropertyStateType.Rejected, "Rejected");
     }
 
     /// <summary>
     /// Re-apply the application process
     /// </summary>
-    /// <param name="buyerAddress"></param>
-    public void ReApply(Address buyerAddress)
+    public void ReApply(string assetId)
     {
-        SetPropertyState(buyerAddress, (uint)PropertyStateType.InProgress);
+        SetPropertyState(assetId, (uint)PropertyStateType.InProgress);
         DoStateLogging(PropertyStateType.InProgress, "InProgress");
     }
 
@@ -163,14 +164,15 @@ public class SaleDeedRegistryContract : SmartContract
     /// </summary>
     /// <param name="buyerAddress">Buyer Address</param>
     /// <param name="payeeAddress">Payee Address</param>
+    /// <param name="assetId">AssetId</param>
     /// <param name="fee">Fee</param>
     public void PayApplicationTransferFee(Address buyerAddress,
-        Address payeeAddress, ulong fee)
+        Address payeeAddress, string assetId, ulong fee)
     {
         Assert(fee > 0, "Fee cannot be less than or equal to 0");
         Assert(this.PayeeAddress == payeeAddress, "Payee address mismatch");
 
-        uint propState = GetPropertyState(buyerAddress);
+        uint propState = GetPropertyState(assetId);
 
         // Set the state to ReviewComplete
         Assert(propState == (int)PropertyStateType.ReviewComplete,
@@ -180,7 +182,7 @@ public class SaleDeedRegistryContract : SmartContract
         Transfer(payeeAddress, fee);
 
         // Set the state to PaidTransferFee
-        SetPropertyState(buyerAddress, (uint)PropertyStateType.PaidTransferFee);
+        SetPropertyState(assetId, (uint)PropertyStateType.PaidTransferFee);
         DoStateLogging(PropertyStateType.PaidTransferFee, "Paid Transfer Fee");
     }
 
@@ -188,10 +190,9 @@ public class SaleDeedRegistryContract : SmartContract
     /// Transfer Asset Ownership of a specific Property/Asset
     /// </summary>
     public void TransferOwnership(Address propertyOwner,
-        Address propertyBuyer)
+        Address propertyBuyer, string assetId)
     {
-        uint propState = GetPropertyState(propertyBuyer);
-        string assetId = GetAssetId(propertyOwner);
+        uint propState = GetPropertyState(assetId);
 
         Assert(propertyOwner != propertyBuyer, "The owner and the buyer cannot be same");
         Assert(propState == (int)PropertyStateType.PaidTransferFee, "State not equal to PaidTransferFee");
@@ -213,7 +214,7 @@ public class SaleDeedRegistryContract : SmartContract
         });
 
         // Set the property state as Approved
-        SetPropertyState(propertyBuyer, (uint)PropertyStateType.Approved);
+        SetPropertyState(assetId, (uint)PropertyStateType.Approved);
         DoStateLogging(PropertyStateType.Approved, "Approved");
     }
 

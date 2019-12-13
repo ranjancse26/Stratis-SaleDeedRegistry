@@ -162,7 +162,7 @@
             this.signatureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.signatureBox.Location = new System.Drawing.Point(218, 404);
             this.signatureBox.Name = "signatureBox";
-            this.signatureBox.Size = new System.Drawing.Size(423, 108);
+            this.signatureBox.Size = new System.Drawing.Size(423, 72);
             this.signatureBox.TabIndex = 18;
             this.signatureBox.TabStop = false;
             // 
@@ -170,7 +170,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(7, 404);
+            this.label7.Location = new System.Drawing.Point(3, 404);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(116, 29);
             this.label7.TabIndex = 19;
@@ -180,7 +180,7 @@
             // 
             this.btnBrowseSignature.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBrowseSignature.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnBrowseSignature.Location = new System.Drawing.Point(520, 470);
+            this.btnBrowseSignature.Location = new System.Drawing.Point(520, 482);
             this.btnBrowseSignature.Name = "btnBrowseSignature";
             this.btnBrowseSignature.Size = new System.Drawing.Size(121, 42);
             this.btnBrowseSignature.TabIndex = 20;
@@ -192,7 +192,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(7, 347);
+            this.label8.Location = new System.Drawing.Point(3, 347);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(146, 29);
             this.label8.TabIndex = 21;
@@ -232,7 +232,7 @@
             this.Controls.Add(this.txtPropertyNumber);
             this.Controls.Add(this.label1);
             this.Name = "AssetInfoUserControl";
-            this.Size = new System.Drawing.Size(658, 525);
+            this.Size = new System.Drawing.Size(658, 538);
             ((System.ComponentModel.ISupportInitialize)(this.signatureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

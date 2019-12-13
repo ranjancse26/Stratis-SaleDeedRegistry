@@ -154,7 +154,8 @@ namespace SaleDeedRegistry.Lib.Actors
         /// Transfer Ownership
         /// </summary>
         /// <returns>ReceiptResponse</returns>
-        public async Task<ReceiptResponse> TransferOwnership(string seller, string buyer)
+        public async Task<ReceiptResponse> TransferOwnership(string seller, 
+            string buyer)
         {
             ReceiptResponse receiptResponce = null;
             SaleDeedTransferOwnershipRequest transferOwnershipEntity = new SaleDeedTransferOwnershipRequest

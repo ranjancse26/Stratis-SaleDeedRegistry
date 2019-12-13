@@ -30,10 +30,12 @@ namespace SaleDeedRegistry.Lib.Actors
         /// Pay the Application Fee Transfer Fee
         /// </summary>
         /// <returns>ReceiptResponse</returns>
-        public async Task<ReceiptResponse> PayTransferFee(string payee, int applicationFee = 0)
+        public async Task<ReceiptResponse> PayTransferFee(string payee, 
+            string assetId, int applicationFee = 0)
         {
             SaleDeedTransferFeeRequest transferFeeObject = new SaleDeedTransferFeeRequest
             {
+                AssetId = assetId,
                 GasPrice = ConfigHelper.GasPrice,
                 GasLimit = ConfigHelper.GasLimit,
                 Amount = ConfigHelper.Amount,
