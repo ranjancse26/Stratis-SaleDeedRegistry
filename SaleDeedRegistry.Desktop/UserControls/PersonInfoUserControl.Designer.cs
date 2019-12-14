@@ -40,6 +40,13 @@
             this.txtAaddhar = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPAN = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtWalletAddress = new System.Windows.Forms.TextBox();
+            this.btnBrowseSignature = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.signatureBox = new System.Windows.Forms.PictureBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            ((System.ComponentModel.ISupportInitialize)(this.signatureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -155,10 +162,69 @@
             this.txtPAN.Size = new System.Drawing.Size(423, 30);
             this.txtPAN.TabIndex = 6;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(17, 364);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(175, 29);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Wallet Address";
+            // 
+            // txtWalletAddress
+            // 
+            this.txtWalletAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWalletAddress.Location = new System.Drawing.Point(220, 364);
+            this.txtWalletAddress.Name = "txtWalletAddress";
+            this.txtWalletAddress.Size = new System.Drawing.Size(423, 30);
+            this.txtWalletAddress.TabIndex = 7;
+            // 
+            // btnBrowseSignature
+            // 
+            this.btnBrowseSignature.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBrowseSignature.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnBrowseSignature.Location = new System.Drawing.Point(523, 554);
+            this.btnBrowseSignature.Name = "btnBrowseSignature";
+            this.btnBrowseSignature.Size = new System.Drawing.Size(121, 42);
+            this.btnBrowseSignature.TabIndex = 23;
+            this.btnBrowseSignature.Text = "Browse";
+            this.btnBrowseSignature.UseVisualStyleBackColor = true;
+            this.btnBrowseSignature.Click += new System.EventHandler(this.btnBrowseSignature_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(17, 422);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(116, 29);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Signature";
+            // 
+            // signatureBox
+            // 
+            this.signatureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.signatureBox.Location = new System.Drawing.Point(220, 422);
+            this.signatureBox.Name = "signatureBox";
+            this.signatureBox.Size = new System.Drawing.Size(423, 126);
+            this.signatureBox.TabIndex = 21;
+            this.signatureBox.TabStop = false;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // PersonInfoUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnBrowseSignature);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.signatureBox);
+            this.Controls.Add(this.txtWalletAddress);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.txtPAN);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtAaddhar);
@@ -172,8 +238,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "PersonInfoUserControl";
-            this.Size = new System.Drawing.Size(668, 360);
+            this.Size = new System.Drawing.Size(668, 620);
             this.Load += new System.EventHandler(this.PersonInfoUserControl_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.signatureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,5 +260,11 @@
         private System.Windows.Forms.TextBox txtAaddhar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPAN;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtWalletAddress;
+        private System.Windows.Forms.Button btnBrowseSignature;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.PictureBox signatureBox;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

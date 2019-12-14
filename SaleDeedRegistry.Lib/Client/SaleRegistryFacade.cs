@@ -148,7 +148,7 @@ namespace SaleDeedRegistry.Lib
                 {
                     SetRequestHeader(requestEntity, httpRequest);
 
-                    httpRequest.Content = new StringContent("{  \"address\": \"{0}\"}".Replace("{0}", requestEntity.BuyerAddress));
+                    httpRequest.Content = new StringContent("{  \"assetId\": \"{0}\"}".Replace("{0}", requestEntity.AssetId));
                     httpRequest.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
                     var response = await httpClient.SendAsync(httpRequest);                   

@@ -9,6 +9,12 @@ namespace SaleDeedRegistry.Desktop.SaleDeed
 {
     public partial class FrmSaleDeedRegistry : Form
     {
+        private const string PaidApplicationTransferFee = "Paid Application Transfer Fee";
+        private const string InProgressState = "In-Progress";
+        private const string StateTheReviewProcess = "Started Review Process";
+        private const string CompleteTheReviewProcess = "Completed Review Process";
+        private const string TransferOwnershipComplete = "Transfer Ownership Complete";
+        
         private readonly Payee payee;
         private readonly PropertyBuyer propertyBuyer;
         private readonly PropertySeller propertySeller;
@@ -54,7 +60,7 @@ namespace SaleDeedRegistry.Desktop.SaleDeed
             if (receiptResponse != null && receiptResponse.success)
             {
                 OutputResponseInformation(receiptResponse);
-                lblState.Text = "In-Progress";
+                lblState.Text = InProgressState;
                 btnInitApplication.Enabled = false;
                 btnStartReviewProcess.Enabled = true;
             }
@@ -79,7 +85,7 @@ namespace SaleDeedRegistry.Desktop.SaleDeed
             if (receiptResponse != null && receiptResponse.success)
             {
                 OutputResponseInformation(receiptResponse);
-                lblState.Text = "Started Review Process";
+                lblState.Text = StateTheReviewProcess;
                 btnStartReviewProcess.Enabled = false;
                 btnCompleteReviewProcess.Enabled = true;
             }
@@ -92,7 +98,7 @@ namespace SaleDeedRegistry.Desktop.SaleDeed
             if (receiptResponse != null && receiptResponse.success)
             {
                 OutputResponseInformation(receiptResponse);
-                lblState.Text = "Completed Review Process";
+                lblState.Text = CompleteTheReviewProcess;
                 btnCompleteReviewProcess.Enabled = false;
                 btnPayApplicationTransferFee.Enabled = true;
             }
@@ -107,15 +113,14 @@ namespace SaleDeedRegistry.Desktop.SaleDeed
                 txtAssetID.Focus();
                 return;
             }
-
-
+            
             lblState.Text = "Please wait....";
             receiptResponse = await propertyBuyer.PayTransferFee(payee.GetPayee(),
                 txtAssetID.Text.Trim());
             if (receiptResponse != null && receiptResponse.success)
             {
                 OutputResponseInformation(receiptResponse);
-                lblState.Text = "Paid Application Transfer Fee";
+                lblState.Text = PaidApplicationTransferFee;
                 btnPayApplicationTransferFee.Enabled = false;
                 btnTransferOwnership.Enabled = true;
             }
@@ -130,7 +135,7 @@ namespace SaleDeedRegistry.Desktop.SaleDeed
             {
                 OutputResponseInformation(receiptResponse);
                 btnTransferOwnership.Enabled = false;
-                lblState.Text = "Transfer Ownership Complete";
+                lblState.Text = TransferOwnershipComplete;
             }
         }
     }

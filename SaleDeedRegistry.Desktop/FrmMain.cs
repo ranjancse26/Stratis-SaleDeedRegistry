@@ -3,9 +3,13 @@ using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 using ContactManagement;
-using SaleDeedRegistry.Desktop.Constants;
+
+using SaleDeedRegistry.Desktop.Asset;
+using SaleDeedRegistry.Desktop.Search;
 using SaleDeedRegistry.Desktop.SaleDeed;
+using SaleDeedRegistry.Desktop.Constants;
 using SaleDeedRegistry.Desktop.Signature;
+using SaleDeedRegistry.Desktop.Person;
 
 namespace SaleDeedRegistry.Desktop
 {
@@ -25,8 +29,10 @@ namespace SaleDeedRegistry.Desktop
 
         private void createNewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCreateAsset frmCreateAsset = new FrmCreateAsset();
-            frmCreateAsset.MdiParent = this;
+            FrmCreateAsset frmCreateAsset = new FrmCreateAsset
+            {
+                MdiParent = this
+            };
             frmCreateAsset.Show();
         }
 
@@ -46,6 +52,31 @@ namespace SaleDeedRegistry.Desktop
         {
             FrmSaleDeedRegistry frmSaleDeedRegistry = new FrmSaleDeedRegistry();
             frmSaleDeedRegistry.ShowDialog();
+        }
+
+        private void searchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAssetSearch frmAssetSearch = new FrmAssetSearch
+            {
+                MdiParent = this,
+                WindowState = FormWindowState.Maximized
+            };
+            frmAssetSearch.Show();
+        }
+
+        private void createToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPersonInfo frmPerson = new FrmPersonInfo(null, null);
+            frmPerson.ShowDialog();
+        }
+
+        private void searchToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmSearchPersonInfo frmSearchPersonInfo = new FrmSearchPersonInfo
+            {
+                MdiParent = this
+            };
+            frmSearchPersonInfo.Show();
         }
     }
 }

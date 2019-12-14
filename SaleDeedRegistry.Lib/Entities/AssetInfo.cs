@@ -11,14 +11,14 @@ namespace SaleDeedRegistry.Lib.Entities
         public string PropertyNumber { get; set; }
 
         [OneToOne]
-        [ForeignKey(typeof(AssetPersonInfo))]
+        [ForeignKey(typeof(PersonInfo))]
         public int PersonId { get; set; }
 
         public string WardNumber { get; set; }
         public string MuncipleNumber { get; set; }
         
         [OneToOne]
-        [ForeignKey(typeof(PropertyLocation))]
+        [ForeignKey(typeof(LocationInfo))]
         public int LocationId { get; set; }
         
         public long MarketPrice { get; set; }

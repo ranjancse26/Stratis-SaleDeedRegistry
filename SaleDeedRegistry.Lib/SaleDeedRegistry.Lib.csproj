@@ -98,8 +98,8 @@
     <Compile Include="Command\TransferFeeCommand.cs" />
     <Compile Include="Command\TransferOwnershipCommand.cs" />
     <Compile Include="Entities\AssetInfo.cs" />
-    <Compile Include="Entities\AssetPersonInfo.cs" />
-    <Compile Include="Entities\PropertyLocation.cs" />
+    <Compile Include="Entities\PersonInfo.cs" />
+    <Compile Include="Entities\LocationInfo.cs" />
     <Compile Include="Helpers\ConfigHelper.cs" />
     <Compile Include="Helpers\UniqueIdHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

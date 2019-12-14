@@ -1,4 +1,5 @@
-﻿using SQLite.Net;
+﻿using System.Linq;
+using SQLite.Net;
 using SQLite.Net.Platform.Win32;
 using SaleDeedRegistry.Lib.Entities;
 using System.Collections.Generic;
@@ -25,22 +26,39 @@ namespace SaleDeedRegistry.Desktop.Repository
             }
         }
 
+        /// <summary>
+        /// Insert AssetInfo
+        /// </summary>
+        /// <param name="assetInfo"></param>
+        /// <returns></returns>
         public int InsertAsset(AssetInfo assetInfo)
         {
             return this.Insert(assetInfo);
         }
 
+        /// <summary>
+        /// Update AssetInfo
+        /// </summary>
+        /// <param name="assetInfo"></param>
+        /// <returns></returns>
         public int UpdateAsset(AssetInfo assetInfo)
         {
             return this.Update(assetInfo);
         }
 
+        /// <summary>
+        /// Delete an AssetInfo by Id
+        /// </summary>
+        /// <param name="id"></param>
         public void DeleteAsset(int id)
         {
             var asset = QueryAssetById(id);
             Delete(asset);
         }
 
+        /// <summary>
+        /// Delete or Cleanup All the Assets
+        /// </summary>
         public void DeleteAllAssets()
         {
             this.DeleteAll<AssetInfo>();
@@ -53,20 +71,45 @@ namespace SaleDeedRegistry.Desktop.Repository
         /// <returns>AssetInfo</returns>
         public AssetInfo QueryAssetById(int id)
         {
-            return (from contact in Table<AssetInfo>()
-                    where contact.Id == id
-                    select contact).FirstOrDefault();
+            return (from asset in Table<AssetInfo>()
+                    where asset.Id == id
+                    select asset).FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Query Assets by PersonId
+        /// </summary>
+        /// <param name="personId">personId</param>
+        /// <returns>AssetInfo</returns>
+        public List<AssetInfo> QueryAssetByPersonId(int personId)
+        {
+            return (from asset in Table<AssetInfo>()
+                    where asset.PersonId == personId
+                    select asset).ToList();
+        }
+
+        /// <summary>
+        /// Query Assets by the AssetId
+        /// </summary>
+        /// <param name="assetId">AssetId</param>
+        /// <returns>AssetInfo</returns>
+        public AssetInfo QueryAssetsByAssetId(string assetId)
+        {
+            return (from asset in Table<AssetInfo>()
+                    orderby asset.Id
+                    where asset.AssetId == assetId
+                    select asset).FirstOrDefault();
         }
 
         /// <summary>
         ///  Query all the Assets
         /// </summary>
-        /// <returns></returns>
-        public IEnumerable<AssetInfo> QueryAllAssets()
+        /// <returns>Collection of AssetInfo</returns>
+        public List<AssetInfo> QueryAllAssets()
         {
-            return from contact in Table<AssetInfo>()
-                   orderby contact.Id
-                   select contact;
+            return (from asset in Table<AssetInfo>()
+                   orderby asset.Id
+                   select asset).ToList();
         }
     }
 }

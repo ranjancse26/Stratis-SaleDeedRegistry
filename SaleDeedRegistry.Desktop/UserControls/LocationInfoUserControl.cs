@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SaleDeedRegistry.Lib.Entities;
 
 namespace SaleDeedRegistry.Desktop.UserControls
 {
@@ -93,10 +94,22 @@ namespace SaleDeedRegistry.Desktop.UserControls
             }
         }
 
+        public new void Load(LocationInfo locationInfo)
+        {
+            txtAddressLine1.Text = locationInfo.Address1;
+            txtAddressLine2.Text = locationInfo.Address2;
+            txtCity.Text = locationInfo.City;
+            txtCountry.Text = locationInfo.Country;
+            txtLatitude.Text = locationInfo.Latitude;
+            txtLongitude.Text = locationInfo.Longitude;
+            txtState.Text = locationInfo.State;
+            txtZipCode.Text = locationInfo.ZipCode;
+        }
+
         /// <summary>
         /// Custom Validate the fields and throw error message
         /// </summary>
-        public bool Validate()
+        public new bool Validate()
         {
             if (string.IsNullOrEmpty(txtAddressLine1.Text.Trim()))
             {

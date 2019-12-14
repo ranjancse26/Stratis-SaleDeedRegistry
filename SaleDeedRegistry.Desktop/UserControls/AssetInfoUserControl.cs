@@ -107,13 +107,6 @@ namespace SaleDeedRegistry.Desktop.UserControls
         /// </summary>
         public bool Validate()
         {
-            if (string.IsNullOrEmpty(txtMarketPrice.Text.Trim()))
-            {
-                ShowErrorMessage("Please specify the market price");
-                txtMarketPrice.Focus();
-                return false;
-            }
-
             if (string.IsNullOrEmpty(txtPropertyNumber.Text.Trim()))
             {
                 ShowErrorMessage("Please specify the property number");
@@ -121,12 +114,6 @@ namespace SaleDeedRegistry.Desktop.UserControls
                 return false;
             }
 
-            if (string.IsNullOrEmpty(txtPurchacePrice.Text.Trim()))
-            {
-                ShowErrorMessage("Please specify the purchace price");
-                txtPurchacePrice.Focus();
-                return false;
-            }
 
             if (string.IsNullOrEmpty(txtWardNumber.Text.Trim()))
             {
@@ -141,6 +128,28 @@ namespace SaleDeedRegistry.Desktop.UserControls
                 txtMunciple.Focus();
                 return false;
             }
+
+            if (string.IsNullOrEmpty(txtMarketPrice.Text.Trim()))
+            {
+                ShowErrorMessage("Please specify the market price");
+                txtMarketPrice.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(txtPurchacePrice.Text.Trim()))
+            {
+                ShowErrorMessage("Please specify the purchace price");
+                txtPurchacePrice.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(txtMeasurment.Text.Trim()))
+            {
+                ShowErrorMessage("Please specify the measurment");
+                txtMeasurment.Focus();
+                return false;
+            }
+
             return true;
         }
 

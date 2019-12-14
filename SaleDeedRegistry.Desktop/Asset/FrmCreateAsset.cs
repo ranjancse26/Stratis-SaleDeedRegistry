@@ -7,14 +7,14 @@ using SaleDeedRegistry.Lib.Entities;
 using SaleDeedRegistry.Desktop.Constants;
 using SaleDeedRegistry.Desktop.Repository;
 
-namespace SaleDeedRegistry.Desktop
+namespace SaleDeedRegistry.Desktop.Asset
 {
     public partial class FrmCreateAsset : Form
     {
         private readonly string dbPath = "";
         private readonly AssetManagementRepository assetManagementRepository;
         private readonly PersonRespository personRespository;
-        private readonly PropertyLocationRespository propertyLocationRespository;
+        private readonly LocationRespository propertyLocationRespository;
        
         public FrmCreateAsset()
         {
@@ -25,14 +25,13 @@ namespace SaleDeedRegistry.Desktop
             this.WindowState = FormWindowState.Maximized;
             personRespository = new PersonRespository(dbPath);
             assetManagementRepository = new AssetManagementRepository(dbPath);
-            propertyLocationRespository = new PropertyLocationRespository(dbPath);
+            propertyLocationRespository = new LocationRespository(dbPath);
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            personInfoUserControl1.Clear();
-            locationInfoUserControl1.Clear();
             assetInfoUserControl1.Clear();
+            locationInfoUserControl1.Clear();
             lblAssetId.Text = "";
         }
 
@@ -40,9 +39,17 @@ namespace SaleDeedRegistry.Desktop
         {
             try
             {
-                // Validate
-                bool isPersonalInfoValid = personInfoUserControl1.Validate();
-                if (!isPersonalInfoValid) return;
+                if(cmbPropertyOwner.Text == "" || 
+                    cmbPropertyOwner.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please select the property owner", "Error",
+                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cmbPropertyOwner.Focus();
+                    return;
+                }
+
+                var splittedPersonInfo = cmbPropertyOwner.Text.Split(
+                    new char[1] { '-' });
 
                 bool isAssetInfoValid = assetInfoUserControl1.Validate();
                 if (!isAssetInfoValid) return;
@@ -51,26 +58,9 @@ namespace SaleDeedRegistry.Desktop
                 if (!isLocationInfoValid) return;
 
                 int id = 0;
-                int personId = 0;
                 int locationId = 0;
 
-                AssetPersonInfo assetPersonInfo = new AssetPersonInfo
-                {
-                    FirstName = personInfoUserControl1.FirstName,
-                    LastName = personInfoUserControl1.LastName,
-                    Gender = personInfoUserControl1.Gender,
-                    MiddleName = personInfoUserControl1.MiddleName,
-                    Aaddhar = personInfoUserControl1.Aaddhar,
-                    PAN = personInfoUserControl1.PAN
-                };
-
-                id = personRespository.Insert(assetPersonInfo);
-                if(id > 0)
-                {
-                    personId = personRespository.GetLastId();
-                }
-
-                PropertyLocation propertyLocation = new PropertyLocation
+                LocationInfo locationInfo = new LocationInfo
                 {
                     Address1 = locationInfoUserControl1.AddressLine1,
                     Address2 = locationInfoUserControl1.AddressLine2,
@@ -81,11 +71,14 @@ namespace SaleDeedRegistry.Desktop
                     Latitude = locationInfoUserControl1.Latitude,
                     Longitude = locationInfoUserControl1.Longitude
                 };
+                locationId = propertyLocationRespository.Insert(locationInfo);
 
-                id = propertyLocationRespository.Insert(propertyLocation);
-                if (id > 0)
+                if(locationId <= 0)
                 {
-                    locationId = propertyLocationRespository.GetLastId();
+                    MessageBox.Show("There was a problem in saving the location info. " +
+                        "Please contact Sys Admin or Support.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
                 AssetInfo assetInfo = new AssetInfo
@@ -99,7 +92,7 @@ namespace SaleDeedRegistry.Desktop
                     PropertyTax = long.Parse(assetInfoUserControl1.PropertyTax),
                     SquareFeet = long.Parse(assetInfoUserControl1.Measurment),
                     ESignature = assetInfoUserControl1.Base64EncodedSignature,
-                    PersonId = personId,
+                    PersonId = int.Parse(splittedPersonInfo[0]),
                     LocationId = locationId
                 };
 
@@ -121,6 +114,18 @@ namespace SaleDeedRegistry.Desktop
         private void FrmCreateAsset_Load(object sender, EventArgs e)
         {
             lblAssetId.Visible = false;
+            LoadPersons();
+        }
+
+        private void LoadPersons()
+        {
+            var allPersons = personRespository.QueryAllPersons();
+            foreach(var person in allPersons)
+            {
+                cmbPropertyOwner.Items.Add(string.Format("{0}-{1}-{2}",
+                    person.Id, $"{person.FirstName} {person.LastName}",
+                    person.Aaddhar));
+            }
         }
     }
 }
