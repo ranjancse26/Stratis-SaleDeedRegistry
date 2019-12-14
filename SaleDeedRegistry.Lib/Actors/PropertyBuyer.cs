@@ -12,9 +12,14 @@ namespace SaleDeedRegistry.Lib.Actors
     /// </summary>
     public class PropertyBuyer : BaseActor
     {
-        public PropertyBuyer()
-        {
+        private readonly string buyerAddress = "";
+        private readonly string ownerAddress = "";
 
+        public PropertyBuyer(string ownerAddress = "",
+            string buyerAddress = "")
+        {
+            this.buyerAddress = buyerAddress;
+            this.ownerAddress = ownerAddress;
         }
 
         /// <summary>
@@ -23,6 +28,9 @@ namespace SaleDeedRegistry.Lib.Actors
         /// <returns></returns>
         public string GetBuyerAddress()
         {
+            if (!string.IsNullOrEmpty(this.buyerAddress))
+                return this.buyerAddress;
+
             return ConfigHelper.GetBuyerAddress;
         }
 
@@ -47,6 +55,12 @@ namespace SaleDeedRegistry.Lib.Actors
                 PayeeAddress = payee,
                 Fees = applicationFee > 0 ? applicationFee : ConfigHelper.ApplicationFee
             };
+
+            if (!string.IsNullOrEmpty(ownerAddress))
+                transferFeeObject.OwnerAddress = ownerAddress;
+
+            if (!string.IsNullOrEmpty(buyerAddress))
+                transferFeeObject.BuyerAddress = buyerAddress;
 
             ReceiptResponse receiptResponse = null;
             SaleRegistryFacade saleRegistryFacade = new SaleRegistryFacade(ConfigHelper.GetSmartContractBaseUrl, ConfigHelper.GetContractAddress);

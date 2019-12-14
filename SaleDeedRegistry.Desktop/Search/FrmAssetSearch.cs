@@ -3,7 +3,6 @@ using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 using System.Collections.Generic;
-using SaleDeedRegistry.Lib.Entities;
 using SaleDeedRegistry.Desktop.Constants;
 using SaleDeedRegistry.Desktop.Repository;
 
@@ -15,7 +14,6 @@ namespace SaleDeedRegistry.Desktop.Search
         private List<AssetViewModel> assetCollection;
         private readonly AssetManagementRepository assetManagementRepository;
         private readonly PersonRespository personRespository;
-        private readonly LocationRespository propertyLocationRespository;
 
         public FrmAssetSearch()
         {
@@ -25,7 +23,6 @@ namespace SaleDeedRegistry.Desktop.Search
             dbPath = string.Format($"{exePath}\\{DBConstant.SqlLiteDBFileName}");
             assetManagementRepository = new AssetManagementRepository(dbPath);
             personRespository = new PersonRespository(dbPath);
-            propertyLocationRespository = new LocationRespository(dbPath);
 
             assetCollection = new List<AssetViewModel>();
             InitDataGridView();
@@ -54,20 +51,28 @@ namespace SaleDeedRegistry.Desktop.Search
             assetsGridView.Columns[index++].DataPropertyName = "MuncipleNumber";
             assetsGridView.Columns[index++].DataPropertyName = "AssetId";
             assetsGridView.Columns[index++].DataPropertyName = "WalletAddress";
+
+            assetsGridView.Columns["PAN"].Width = 200;
+            assetsGridView.Columns["Aaddhar"].Width = 200;
+            assetsGridView.Columns["PropertyNumber"].Width = 200;
+            assetsGridView.Columns["AssetId"].Width = 200;
+            assetsGridView.Columns["MuncipleNumber"].Width = 200;
+            assetsGridView.Columns["WalletAddress"].Width = 200;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            var filteredAssets = assetManagementRepository.Search(txtAssetID.Text.Trim(),
+                txtPropertyNumber.Text.Trim());
+            assetsGridView.DataSource = filteredAssets;
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtAssetID.Text = "";
-            txtFirstName.Text = "";
-            txtLastName.Text = "";
-            txtAaddhar.Text = "";
-            txtPAN.Text = "";
+            txtPropertyNumber.Text = "";
             txtAssetID.Focus();
+            assetsGridView.DataSource = null;
         }
 
         private void LoadAll()

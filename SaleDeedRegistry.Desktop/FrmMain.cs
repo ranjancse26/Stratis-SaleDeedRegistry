@@ -58,8 +58,7 @@ namespace SaleDeedRegistry.Desktop
         {
             FrmAssetSearch frmAssetSearch = new FrmAssetSearch
             {
-                MdiParent = this,
-                WindowState = FormWindowState.Maximized
+                MdiParent = this
             };
             frmAssetSearch.Show();
         }

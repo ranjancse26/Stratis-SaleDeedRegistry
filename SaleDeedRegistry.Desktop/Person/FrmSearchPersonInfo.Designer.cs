@@ -176,7 +176,6 @@
             this.Name = "FrmSearchPersonInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search Person";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             ((System.ComponentModel.ISupportInitialize)(this.personGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -26,7 +26,8 @@ namespace SaleDeedRegistry.Lib.Actors
         private SaleDeedRegistryRequest requestObject;
         private SaleRegistryFacade saleRegistryFacade;
 
-        public Supervisor(string assetId)
+        public Supervisor(string assetId, string buyerAddress = "",
+            string ownerAddress = "")
         {
             requestObject = new SaleDeedRegistryRequest
             {
@@ -41,6 +42,15 @@ namespace SaleDeedRegistry.Lib.Actors
                 OwnerAddress = propertyOwner,
                 AssetId = assetId
             };
+
+            // Override if we have these values
+
+            if (!string.IsNullOrEmpty(buyerAddress))
+                requestObject.BuyerAddress = buyerAddress;
+
+            if (!string.IsNullOrEmpty(ownerAddress))
+                requestObject.OwnerAddress = ownerAddress;
+
             saleRegistryFacade = new SaleRegistryFacade(smartContractUrl, contractAddress);
         }
         

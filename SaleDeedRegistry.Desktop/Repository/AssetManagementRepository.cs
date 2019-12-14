@@ -15,10 +15,12 @@ namespace SaleDeedRegistry.Desktop.Repository
     /// </summary>
     public class AssetManagementRepository : SQLiteConnection
     {
+        private readonly string dbPath;
         private readonly TableRespository tableRespository;
 
         public AssetManagementRepository(string path) : base(new SQLitePlatformWin32(), path)
         {
+            this.dbPath = path;
             tableRespository = new TableRespository(path);
             if (!tableRespository.TableExists<AssetInfo>())
             {
@@ -62,6 +64,26 @@ namespace SaleDeedRegistry.Desktop.Repository
         public void DeleteAllAssets()
         {
             this.DeleteAll<AssetInfo>();
+        }
+
+        /// <summary>
+        /// Search AssetInfo by AssetId and Property Number
+        /// </summary>
+        /// <param name="assetId">AssetId</param>
+        /// <param name="propertyNumber">PropertyNumber</param>
+        /// <returns>Collection of AssetInfo</returns>
+        public List<AssetInfo> Search(string assetId, string propertyNumber)
+        {
+            var db = new SQLiteConnection(new SQLitePlatformWin32(), dbPath);
+            var assetTable = Table<AssetInfo>();
+
+            if (!string.IsNullOrEmpty(assetId))
+                assetTable = assetTable.Where(p => p.AssetId == assetId);
+
+            if (!string.IsNullOrEmpty(propertyNumber))
+                assetTable = assetTable.Where(p => p.PropertyNumber.ToLower() == propertyNumber);
+
+            return assetTable.ToList();
         }
 
         /// <summary>

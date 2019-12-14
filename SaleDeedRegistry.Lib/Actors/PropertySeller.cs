@@ -8,9 +8,10 @@ namespace SaleDeedRegistry.Lib.Actors
     /// </summary>
     public class PropertySeller : BaseActor
     {
-        public PropertySeller()
+        private readonly string sellerAddress;
+        public PropertySeller(string sellerAddress = "")
         {
-
+            this.sellerAddress = sellerAddress;
         }
 
         /// <summary>
@@ -19,6 +20,8 @@ namespace SaleDeedRegistry.Lib.Actors
         /// <returns></returns>
         public string GetOwnerAddress()
         {
+            if (!string.IsNullOrEmpty(sellerAddress))
+                return sellerAddress;
             return ConfigHelper.GetOwnerAddress;
         }
     }

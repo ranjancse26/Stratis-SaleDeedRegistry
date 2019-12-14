@@ -44,12 +44,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtBuyerAddress = new System.Windows.Forms.TextBox();
+            this.txtSellerAddress = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnInitApplication
             // 
             this.btnInitApplication.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInitApplication.Location = new System.Drawing.Point(205, 91);
+            this.btnInitApplication.Location = new System.Drawing.Point(229, 209);
             this.btnInitApplication.Name = "btnInitApplication";
             this.btnInitApplication.Size = new System.Drawing.Size(411, 99);
             this.btnInitApplication.TabIndex = 0;
@@ -60,7 +64,7 @@
             // btnStartReviewProcess
             // 
             this.btnStartReviewProcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStartReviewProcess.Location = new System.Drawing.Point(205, 223);
+            this.btnStartReviewProcess.Location = new System.Drawing.Point(229, 341);
             this.btnStartReviewProcess.Name = "btnStartReviewProcess";
             this.btnStartReviewProcess.Size = new System.Drawing.Size(411, 99);
             this.btnStartReviewProcess.TabIndex = 1;
@@ -71,7 +75,7 @@
             // btnCompleteReviewProcess
             // 
             this.btnCompleteReviewProcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCompleteReviewProcess.Location = new System.Drawing.Point(205, 356);
+            this.btnCompleteReviewProcess.Location = new System.Drawing.Point(229, 474);
             this.btnCompleteReviewProcess.Name = "btnCompleteReviewProcess";
             this.btnCompleteReviewProcess.Size = new System.Drawing.Size(411, 99);
             this.btnCompleteReviewProcess.TabIndex = 2;
@@ -85,7 +89,7 @@
             this.lblState.BackColor = System.Drawing.Color.Transparent;
             this.lblState.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblState.ForeColor = System.Drawing.Color.Red;
-            this.lblState.Location = new System.Drawing.Point(199, 742);
+            this.lblState.Location = new System.Drawing.Point(223, 860);
             this.lblState.Name = "lblState";
             this.lblState.Size = new System.Drawing.Size(104, 32);
             this.lblState.TabIndex = 3;
@@ -94,7 +98,7 @@
             // btnPayApplicationTransferFee
             // 
             this.btnPayApplicationTransferFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPayApplicationTransferFee.Location = new System.Drawing.Point(205, 486);
+            this.btnPayApplicationTransferFee.Location = new System.Drawing.Point(229, 604);
             this.btnPayApplicationTransferFee.Name = "btnPayApplicationTransferFee";
             this.btnPayApplicationTransferFee.Size = new System.Drawing.Size(411, 99);
             this.btnPayApplicationTransferFee.TabIndex = 4;
@@ -105,7 +109,7 @@
             // btnTransferOwnership
             // 
             this.btnTransferOwnership.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTransferOwnership.Location = new System.Drawing.Point(205, 616);
+            this.btnTransferOwnership.Location = new System.Drawing.Point(229, 734);
             this.btnTransferOwnership.Name = "btnTransferOwnership";
             this.btnTransferOwnership.Size = new System.Drawing.Size(411, 99);
             this.btnTransferOwnership.TabIndex = 5;
@@ -116,7 +120,7 @@
             // txtAssetID
             // 
             this.txtAssetID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAssetID.Location = new System.Drawing.Point(205, 23);
+            this.txtAssetID.Location = new System.Drawing.Point(231, 23);
             this.txtAssetID.Name = "txtAssetID";
             this.txtAssetID.Size = new System.Drawing.Size(411, 38);
             this.txtAssetID.TabIndex = 6;
@@ -134,7 +138,7 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(652, 91);
+            this.richTextBox1.Location = new System.Drawing.Point(666, 209);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(732, 624);
             this.richTextBox1.TabIndex = 8;
@@ -145,7 +149,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(646, 29);
+            this.label1.Location = new System.Drawing.Point(660, 148);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(223, 32);
             this.label1.TabIndex = 9;
@@ -157,7 +161,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Teal;
-            this.label3.Location = new System.Drawing.Point(62, 91);
+            this.label3.Location = new System.Drawing.Point(86, 209);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(105, 91);
             this.label3.TabIndex = 10;
@@ -169,7 +173,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Teal;
-            this.label4.Location = new System.Drawing.Point(62, 223);
+            this.label4.Location = new System.Drawing.Point(86, 341);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 91);
             this.label4.TabIndex = 11;
@@ -181,7 +185,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Teal;
-            this.label5.Location = new System.Drawing.Point(62, 356);
+            this.label5.Location = new System.Drawing.Point(86, 474);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(105, 91);
             this.label5.TabIndex = 12;
@@ -193,7 +197,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Teal;
-            this.label6.Location = new System.Drawing.Point(62, 486);
+            this.label6.Location = new System.Drawing.Point(86, 604);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(105, 91);
             this.label6.TabIndex = 13;
@@ -205,18 +209,60 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Teal;
-            this.label7.Location = new System.Drawing.Point(62, 616);
+            this.label7.Location = new System.Drawing.Point(86, 734);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(105, 91);
             this.label7.TabIndex = 14;
             this.label7.Text = "5.";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(12, 91);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(208, 32);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Buyer Address:";
+            // 
+            // txtBuyerAddress
+            // 
+            this.txtBuyerAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuyerAddress.Location = new System.Drawing.Point(231, 85);
+            this.txtBuyerAddress.Name = "txtBuyerAddress";
+            this.txtBuyerAddress.Size = new System.Drawing.Size(411, 38);
+            this.txtBuyerAddress.TabIndex = 16;
+            // 
+            // txtSellerAddress
+            // 
+            this.txtSellerAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSellerAddress.Location = new System.Drawing.Point(231, 148);
+            this.txtSellerAddress.Name = "txtSellerAddress";
+            this.txtSellerAddress.Size = new System.Drawing.Size(411, 38);
+            this.txtSellerAddress.TabIndex = 18;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(12, 154);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(208, 32);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Seller Address:";
             // 
             // FrmSaleDeedRegistry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1410, 786);
+            this.ClientSize = new System.Drawing.Size(1415, 900);
+            this.Controls.Add(this.txtSellerAddress);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtBuyerAddress);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -259,5 +305,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtBuyerAddress;
+        private System.Windows.Forms.TextBox txtSellerAddress;
+        private System.Windows.Forms.Label label9;
     }
 }

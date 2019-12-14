@@ -16,8 +16,8 @@ namespace SaleDeedRegistry.Desktop.SaleDeed
         private const string TransferOwnershipComplete = "Transfer Ownership Complete";
         
         private readonly Payee payee;
-        private readonly PropertyBuyer propertyBuyer;
-        private readonly PropertySeller propertySeller;
+        private PropertyBuyer propertyBuyer;
+        private PropertySeller propertySeller;
         private readonly StringBuilder responseStringBuilder;
 
         private Supervisor supervisor;
@@ -27,8 +27,6 @@ namespace SaleDeedRegistry.Desktop.SaleDeed
         {
             InitializeComponent();
             payee = new Payee();
-            propertyBuyer = new PropertyBuyer();
-            propertySeller = new PropertySeller();
             responseStringBuilder = new StringBuilder();
         }
 
@@ -51,10 +49,27 @@ namespace SaleDeedRegistry.Desktop.SaleDeed
                 return;
             }
 
-            lblState.Visible = true;
+            if (string.IsNullOrEmpty(txtBuyerAddress.Text))
+            {
+                MessageBox.Show("Please specify the Buyer Address", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtBuyerAddress.Focus();
+                return;
+            }
 
+            if (string.IsNullOrEmpty(txtSellerAddress.Text))
+            {
+                MessageBox.Show("Please specify the Seller Address", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSellerAddress.Focus();
+                return;
+            }
+
+            lblState.Visible = true;
             lblState.Text = "Please wait....";
-            supervisor = new Supervisor(txtAssetID.Text.Trim());
+
+            supervisor = new Supervisor(txtAssetID.Text.Trim(), 
+                txtBuyerAddress.Text.Trim(), txtSellerAddress.Text.Trim());
             receiptResponse = await supervisor.InitApplication();
 
             if (receiptResponse != null && receiptResponse.success)
@@ -113,8 +128,18 @@ namespace SaleDeedRegistry.Desktop.SaleDeed
                 txtAssetID.Focus();
                 return;
             }
+
+            if (string.IsNullOrEmpty(txtBuyerAddress.Text))
+            {
+                MessageBox.Show("Please specify the Buyer Address", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtBuyerAddress.Focus();
+                return;
+            }
             
             lblState.Text = "Please wait....";
+            propertyBuyer = new PropertyBuyer(txtBuyerAddress.Text.Trim(),
+                txtBuyerAddress.Text.Trim());
             receiptResponse = await propertyBuyer.PayTransferFee(payee.GetPayee(),
                 txtAssetID.Text.Trim());
             if (receiptResponse != null && receiptResponse.success)
@@ -128,7 +153,17 @@ namespace SaleDeedRegistry.Desktop.SaleDeed
 
         private async void btnTransferOwnership_Click(object sender, System.EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtSellerAddress.Text))
+            {
+                MessageBox.Show("Please specify the Seller Address", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSellerAddress.Focus();
+                return;
+            }
+
             lblState.Text = "Please wait....";
+            propertySeller = new PropertySeller(txtSellerAddress.Text.Trim());
+
             receiptResponse = await supervisor.TransferOwnership(propertySeller.GetOwnerAddress(),
                 propertyBuyer.GetBuyerAddress());
             if (receiptResponse != null && receiptResponse.success)
