@@ -26,6 +26,29 @@ namespace SaleDeedRegistry.Lib.Actors
         private SaleDeedRegistryRequest requestObject;
         private SaleRegistryFacade saleRegistryFacade;
 
+        /// <summary>
+        /// Use this constructor for performing operations like
+        /// Get Application State.
+        /// </summary>
+        /// <param name="assetId">AssetId</param>
+        public Supervisor(string assetId)
+        {
+            requestObject = new SaleDeedRegistryRequest
+            {
+                GasPrice = gasPrice,
+                GasLimit = gasLimit,
+                Amount = amount,
+                Sender = sender,
+                FeeAmount = fee,
+                WalletName = walletName,
+                WalletPassword = walletPassword,
+                AssetId = assetId
+            };
+
+            saleRegistryFacade = new SaleRegistryFacade(smartContractUrl, 
+                contractAddress);
+        }
+
         public Supervisor(string assetId, string buyerAddress = "",
             string ownerAddress = "")
         {
@@ -52,6 +75,46 @@ namespace SaleDeedRegistry.Lib.Actors
                 requestObject.OwnerAddress = ownerAddress;
 
             saleRegistryFacade = new SaleRegistryFacade(smartContractUrl, contractAddress);
+        }
+
+        /// <summary>
+        /// Get Application State
+        /// </summary>
+        /// <returns>ReceiptResponse</returns>
+        public async Task<ReceiptResponse> GetApplicationState()
+        {
+            ReceiptResponse receiptResponce = null;
+
+            System.Console.WriteLine("Trying to execute the SaleDeed -> GetApplicationState Request");
+
+            // Execute a method "GetPropertyState" to get the application state
+            var response = await saleRegistryFacade.GetPropertyState(requestObject);
+
+            System.Console.WriteLine("Completed executing SaleDeed -> GetApplicationState Request");
+
+            if (response.IsSuccessStatusCode)
+            {
+                CommandResponse commandResponse = JsonConvert.DeserializeObject<CommandResponse>(response.Content.ReadAsStringAsync().Result);
+                if (commandResponse.success)
+                {
+                    System.Console.WriteLine($"Trying to get the Receipt Response for transactionId: {commandResponse.transactionId}");
+                    receiptResponce = await saleRegistryFacade.TryReceiptResponse(commandResponse.transactionId);
+                    if (receiptResponce != null && receiptResponce.success)
+                    {
+                        Dump(receiptResponce);
+                    }
+                    else
+                    {
+                        System.Console.WriteLine("GetApplicationState -> Receipt Response Error");
+                        Dump(receiptResponce);
+                    }
+                }
+            }
+            else
+            {
+                System.Console.WriteLine("Problem in performing the GetApplicationState Operation");
+            }
+            return receiptResponce;
         }
         
         /// <summary>
@@ -153,6 +216,70 @@ namespace SaleDeedRegistry.Lib.Actors
                 else
                 {
                     System.Console.WriteLine("CompleteTheReviewProcess -> Receipt Response Error");
+                    Dump(receiptResponce);
+                }
+            }
+            return receiptResponce;
+        }
+
+        /// <summary>
+        /// Reject the Application
+        /// </summary>
+        /// <returns>ReceiptResponse</returns>
+        public async Task<ReceiptResponse> Reject()
+        {
+            ReceiptResponse receiptResponce = null;
+
+            System.Console.WriteLine("Trying to execute the SaleDeed -> RejectTheApplication Request");
+
+            // Reject the Application
+            var response = await saleRegistryFacade.RejectApplication(requestObject);
+
+            System.Console.WriteLine("Completed executing SaleDeed -> RejectTheApplication Request");
+
+            var commandResponse = JsonConvert.DeserializeObject<CommandResponse>(response.Content.ReadAsStringAsync().Result);
+            if (commandResponse.success)
+            {
+                receiptResponce = await saleRegistryFacade.TryReceiptResponse(commandResponse.transactionId);
+                if (receiptResponce != null && receiptResponce.success)
+                {
+                    Dump(receiptResponce);
+                }
+                else
+                {
+                    System.Console.WriteLine("RejectTheApplication -> Receipt Response Error");
+                    Dump(receiptResponce);
+                }
+            }
+            return receiptResponce;
+        }
+
+        /// <summary>
+        /// Re-Apply the Application
+        /// </summary>
+        /// <returns>ReceiptResponse</returns>
+        public async Task<ReceiptResponse> ReApply()
+        {
+            ReceiptResponse receiptResponce = null;
+
+            System.Console.WriteLine("Trying to execute the SaleDeed -> ReApplyTheApplication Request");
+
+            // Re-Apply the Application
+            var response = await saleRegistryFacade.ReApplyApplication(requestObject);
+
+            System.Console.WriteLine("Completed executing SaleDeed -> ReApplyTheApplication Request");
+
+            var commandResponse = JsonConvert.DeserializeObject<CommandResponse>(response.Content.ReadAsStringAsync().Result);
+            if (commandResponse.success)
+            {
+                receiptResponce = await saleRegistryFacade.TryReceiptResponse(commandResponse.transactionId);
+                if (receiptResponce != null && receiptResponce.success)
+                {
+                    Dump(receiptResponce);
+                }
+                else
+                {
+                    System.Console.WriteLine("ReApplyTheApplication -> Receipt Response Error");
                     Dump(receiptResponce);
                 }
             }

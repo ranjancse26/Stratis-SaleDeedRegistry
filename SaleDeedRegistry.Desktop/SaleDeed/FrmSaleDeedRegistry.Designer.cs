@@ -32,13 +32,11 @@
             this.btnInitApplication = new System.Windows.Forms.Button();
             this.btnStartReviewProcess = new System.Windows.Forms.Button();
             this.btnCompleteReviewProcess = new System.Windows.Forms.Button();
-            this.lblState = new System.Windows.Forms.Label();
             this.btnPayApplicationTransferFee = new System.Windows.Forms.Button();
             this.btnTransferOwnership = new System.Windows.Forms.Button();
             this.txtAssetID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -48,6 +46,10 @@
             this.txtBuyerAddress = new System.Windows.Forms.TextBox();
             this.txtSellerAddress = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnRejectApplication = new System.Windows.Forms.Button();
+            this.btnReApply = new System.Windows.Forms.Button();
+            this.lblState = new System.Windows.Forms.Label();
+            this.btnGetApplicationState = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnInitApplication
@@ -82,18 +84,6 @@
             this.btnCompleteReviewProcess.Text = "Complete Review Process";
             this.btnCompleteReviewProcess.UseVisualStyleBackColor = true;
             this.btnCompleteReviewProcess.Click += new System.EventHandler(this.btnCompleteReviewProcess_Click);
-            // 
-            // lblState
-            // 
-            this.lblState.AutoSize = true;
-            this.lblState.BackColor = System.Drawing.Color.Transparent;
-            this.lblState.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblState.ForeColor = System.Drawing.Color.Red;
-            this.lblState.Location = new System.Drawing.Point(223, 860);
-            this.lblState.Name = "lblState";
-            this.lblState.Size = new System.Drawing.Size(104, 32);
-            this.lblState.TabIndex = 3;
-            this.lblState.Text = "State : ";
             // 
             // btnPayApplicationTransferFee
             // 
@@ -138,22 +128,11 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(666, 209);
+            this.richTextBox1.Location = new System.Drawing.Point(671, 85);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(732, 624);
+            this.richTextBox1.Size = new System.Drawing.Size(732, 618);
             this.richTextBox1.TabIndex = 8;
             this.richTextBox1.Text = "";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(660, 148);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(223, 32);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Developer Mode";
             // 
             // label3
             // 
@@ -253,12 +232,67 @@
             this.label9.TabIndex = 17;
             this.label9.Text = "Seller Address:";
             // 
+            // btnRejectApplication
+            // 
+            this.btnRejectApplication.BackColor = System.Drawing.Color.Red;
+            this.btnRejectApplication.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRejectApplication.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnRejectApplication.Location = new System.Drawing.Point(671, 734);
+            this.btnRejectApplication.Name = "btnRejectApplication";
+            this.btnRejectApplication.Size = new System.Drawing.Size(351, 99);
+            this.btnRejectApplication.TabIndex = 19;
+            this.btnRejectApplication.Text = "Reject";
+            this.btnRejectApplication.UseVisualStyleBackColor = false;
+            this.btnRejectApplication.Click += new System.EventHandler(this.btnRejectApplication_Click);
+            // 
+            // btnReApply
+            // 
+            this.btnReApply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btnReApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReApply.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnReApply.Location = new System.Drawing.Point(1052, 734);
+            this.btnReApply.Name = "btnReApply";
+            this.btnReApply.Size = new System.Drawing.Size(351, 99);
+            this.btnReApply.TabIndex = 20;
+            this.btnReApply.Text = "Re-Apply";
+            this.btnReApply.UseVisualStyleBackColor = false;
+            this.btnReApply.Click += new System.EventHandler(this.btnReApply_Click);
+            // 
+            // lblState
+            // 
+            this.lblState.AutoSize = true;
+            this.lblState.BackColor = System.Drawing.Color.Transparent;
+            this.lblState.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblState.ForeColor = System.Drawing.Color.Red;
+            this.lblState.Location = new System.Drawing.Point(908, 36);
+            this.lblState.Name = "lblState";
+            this.lblState.Size = new System.Drawing.Size(104, 32);
+            this.lblState.TabIndex = 21;
+            this.lblState.Text = "State : ";
+            // 
+            // btnGetApplicationState
+            // 
+            this.btnGetApplicationState.BackColor = System.Drawing.Color.LightGreen;
+            this.btnGetApplicationState.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGetApplicationState.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnGetApplicationState.Location = new System.Drawing.Point(671, 23);
+            this.btnGetApplicationState.Name = "btnGetApplicationState";
+            this.btnGetApplicationState.Size = new System.Drawing.Size(219, 56);
+            this.btnGetApplicationState.TabIndex = 22;
+            this.btnGetApplicationState.Text = "Get State";
+            this.btnGetApplicationState.UseVisualStyleBackColor = false;
+            this.btnGetApplicationState.Click += new System.EventHandler(this.btnGetApplicationState_Click);
+            // 
             // FrmSaleDeedRegistry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1415, 900);
+            this.ClientSize = new System.Drawing.Size(1415, 844);
+            this.Controls.Add(this.btnGetApplicationState);
+            this.Controls.Add(this.lblState);
+            this.Controls.Add(this.btnReApply);
+            this.Controls.Add(this.btnRejectApplication);
             this.Controls.Add(this.txtSellerAddress);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtBuyerAddress);
@@ -268,13 +302,11 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtAssetID);
             this.Controls.Add(this.btnTransferOwnership);
             this.Controls.Add(this.btnPayApplicationTransferFee);
-            this.Controls.Add(this.lblState);
             this.Controls.Add(this.btnCompleteReviewProcess);
             this.Controls.Add(this.btnStartReviewProcess);
             this.Controls.Add(this.btnInitApplication);
@@ -293,13 +325,11 @@
         private System.Windows.Forms.Button btnInitApplication;
         private System.Windows.Forms.Button btnStartReviewProcess;
         private System.Windows.Forms.Button btnCompleteReviewProcess;
-        private System.Windows.Forms.Label lblState;
         private System.Windows.Forms.Button btnPayApplicationTransferFee;
         private System.Windows.Forms.Button btnTransferOwnership;
         private System.Windows.Forms.TextBox txtAssetID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -309,5 +339,9 @@
         private System.Windows.Forms.TextBox txtBuyerAddress;
         private System.Windows.Forms.TextBox txtSellerAddress;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnRejectApplication;
+        private System.Windows.Forms.Button btnReApply;
+        private System.Windows.Forms.Label lblState;
+        private System.Windows.Forms.Button btnGetApplicationState;
     }
 }

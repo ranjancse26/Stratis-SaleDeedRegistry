@@ -6,18 +6,20 @@ namespace SaleDeedRegistry.Console
     {
         public enum PropertyStateType : uint
         {
+            [Description("NotStarted")]
+            NotStarted = 0,
             [Description("InProgress")]
-            InProgress = 0,
+            InProgress = 1,
             [Description("UnderReview")]
-            UnderReview = 1,
+            UnderReview = 2,
             [Description("ReviewComplete")]
-            ReviewComplete = 2,
+            ReviewComplete = 3,
             [Description("PaidTransferFee")]
-            PaidTransferFee = 3,
+            PaidTransferFee = 4,
             [Description("Approved")]
-            Approved = 4,
+            Approved = 5,
             [Description("Rejected")]
-            Rejected = 5
+            Rejected = 6
         }
     }
 }

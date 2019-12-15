@@ -12,12 +12,13 @@ public class SaleDeedRegistryContract : SmartContract
     /// </summary>
     public enum PropertyStateType : uint
     {
-        InProgress = 0,
-        UnderReview = 1,
-        ReviewComplete = 2,
-        PaidTransferFee = 3,
-        Approved = 4,
-        Rejected = 5
+        NotStarted = 0,
+        InProgress = 1,
+        UnderReview = 2,
+        ReviewComplete = 3,
+        PaidTransferFee = 4,
+        Approved = 5,
+        Rejected = 6
     }
 
     public SaleDeedRegistryContract(ISmartContractState smartContractState, Address payeeAddress)

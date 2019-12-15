@@ -4,6 +4,8 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using SaleDeedRegistry.Lib.Actors;
 using SaleDeedRegistry.Lib.Client;
+using SaleDeedRegistry.Desktop.Constants;
+using System.Collections.Generic;
 
 namespace SaleDeedRegistry.Desktop.SaleDeed
 {
@@ -14,7 +16,8 @@ namespace SaleDeedRegistry.Desktop.SaleDeed
         private const string StateTheReviewProcess = "Started Review Process";
         private const string CompleteTheReviewProcess = "Completed Review Process";
         private const string TransferOwnershipComplete = "Transfer Ownership Complete";
-        
+        private const string ApplicationRejected = "Application Rejected";
+
         private readonly Payee payee;
         private PropertyBuyer propertyBuyer;
         private PropertySeller propertySeller;
@@ -22,12 +25,22 @@ namespace SaleDeedRegistry.Desktop.SaleDeed
 
         private Supervisor supervisor;
         private ReceiptResponse receiptResponse;
+        private List<Button> stateButtons;
 
         public FrmSaleDeedRegistry()
         {
             InitializeComponent();
             payee = new Payee();
             responseStringBuilder = new StringBuilder();
+            stateButtons = new List<Button>
+            {
+                btnInitApplication,
+                btnStartReviewProcess,
+                btnCompleteReviewProcess,
+                btnPayApplicationTransferFee,
+                btnTransferOwnership,
+                btnRejectApplication
+            };
         }
 
         private void FrmSaleDeedRegistry_Load(object sender, System.EventArgs e)
@@ -36,7 +49,9 @@ namespace SaleDeedRegistry.Desktop.SaleDeed
             btnCompleteReviewProcess.Enabled = false;
             btnPayApplicationTransferFee.Enabled = false;
             btnTransferOwnership.Enabled = false;
-            lblState.Visible = false;
+            btnRejectApplication.Enabled = false;
+            btnReApply.Enabled = false;
+            lblState.Text = "";
         }
 
         private async void btnInitApplication_Click(object sender, System.EventArgs e)
@@ -78,6 +93,7 @@ namespace SaleDeedRegistry.Desktop.SaleDeed
                 lblState.Text = InProgressState;
                 btnInitApplication.Enabled = false;
                 btnStartReviewProcess.Enabled = true;
+                btnRejectApplication.Enabled = true;
             }
         }
 
@@ -103,6 +119,7 @@ namespace SaleDeedRegistry.Desktop.SaleDeed
                 lblState.Text = StateTheReviewProcess;
                 btnStartReviewProcess.Enabled = false;
                 btnCompleteReviewProcess.Enabled = true;
+                btnRejectApplication.Enabled = true;
             }
         }
 
@@ -172,6 +189,104 @@ namespace SaleDeedRegistry.Desktop.SaleDeed
                 btnTransferOwnership.Enabled = false;
                 lblState.Text = TransferOwnershipComplete;
             }
+        }
+
+        private async void btnRejectApplication_Click(object sender, EventArgs e)
+        {
+            lblState.Text = "Please wait....";
+            receiptResponse = await supervisor.Reject();
+            if (receiptResponse != null && receiptResponse.success)
+            {
+                OutputResponseInformation(receiptResponse);
+                lblState.Text = ApplicationRejected;
+
+                btnStartReviewProcess.Enabled = false;
+                btnCompleteReviewProcess.Enabled = false;
+                btnPayApplicationTransferFee.Enabled = false;
+                btnTransferOwnership.Enabled = false;
+                
+                btnReApply.Enabled = true;
+            }
+        }
+
+        private async void btnReApply_Click(object sender, EventArgs e)
+        {
+            lblState.Text = "Please wait....";
+            receiptResponse = await supervisor.ReApply();
+            if (receiptResponse != null && receiptResponse.success)
+            {
+                OutputResponseInformation(receiptResponse);
+                lblState.Text = ApplicationRejected;
+
+                btnStartReviewProcess.Enabled = false;
+                btnCompleteReviewProcess.Enabled = false;
+                btnPayApplicationTransferFee.Enabled = false;
+                btnTransferOwnership.Enabled = false;
+
+                btnReApply.Enabled = false;
+                btnInitApplication.Enabled = true;
+            }
+        }
+
+        /// <summary>
+        /// Disable State Buttons
+        /// </summary>
+        private void DisableStateButtons()
+        {
+            foreach(Button btn in stateButtons)
+            {
+                btn.Enabled = false;
+            }
+        }
+
+        /// <summary>
+        /// Evaulate the State and then set the State Buttons Accordingly
+        /// </summary>
+        /// <param name="propertyStateType">PropertyStateType</param>
+        private void SetStates(PropertyStateType propertyStateType)
+        {
+            DisableStateButtons();
+            if(propertyStateType == PropertyStateType.NotStarted)
+            {
+                btnInitApplication.Enabled = true;
+            }
+            else
+            {
+                stateButtons[(int)propertyStateType].Enabled = true;
+            }
+        }
+
+        private async void btnGetApplicationState_Click(object sender, EventArgs e)
+        {
+            btnGetApplicationState.Enabled = false;
+            if (string.IsNullOrEmpty(txtAssetID.Text))
+            {
+                MessageBox.Show("Please specify the AssetId", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAssetID.Focus();
+                return;
+            }
+
+            supervisor = new Supervisor(txtAssetID.Text.Trim());
+            receiptResponse = await supervisor.GetApplicationState();
+
+            if (receiptResponse != null && receiptResponse.success)
+            {
+                if(receiptResponse.returnValue == "")
+                {
+                    lblState.Text = "";
+                    btnInitApplication.Enabled = true;
+                }
+                else
+                {
+                    var stateEnum = Enum.Parse(typeof(PropertyStateType),
+                        receiptResponse.returnValue);
+                    lblState.Text = stateEnum.ToString();
+                    SetStates((PropertyStateType)stateEnum);
+                }
+            }
+            btnGetApplicationState.Enabled = true;
+            //
         }
     }
 }

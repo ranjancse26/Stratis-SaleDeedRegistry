@@ -104,6 +104,7 @@
     <Compile Include="Asset\FrmCreateAsset.Designer.cs">
       <DependentUpon>FrmCreateAsset.cs</DependentUpon>
     </Compile>
+    <Compile Include="Constants\PropertyStateType.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>

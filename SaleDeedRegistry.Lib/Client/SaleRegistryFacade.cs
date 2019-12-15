@@ -80,6 +80,16 @@ namespace SaleDeedRegistry.Lib
         }
 
         /// <summary>
+        /// Re-Apply Application
+        /// </summary>
+        /// <param name="requestObject">RequestObject</param>
+        /// <returns>HttpResponseMessage</returns>
+        public async Task<HttpResponseMessage> ReApplyApplication(SaleDeedRegistryRequest requestObject)
+        {
+            return await Execute(requestObject, "ReApply");
+        }
+
+        /// <summary>
         /// Try getting the receipt response until the specified timeout
         /// </summary>
         /// <param name="saleRegistryFacade"></param>
