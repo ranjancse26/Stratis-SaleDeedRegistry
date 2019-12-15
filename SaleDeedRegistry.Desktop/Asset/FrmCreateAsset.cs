@@ -99,6 +99,7 @@ namespace SaleDeedRegistry.Desktop.Asset
                 // Persist the Asset Info
                 assetManagementRepository.InsertAsset(assetInfo);
 
+                btnCopyAssetId.Enabled = true;
                 lblAssetId.Visible = true;
                 lblAssetId.Text = string.Format("{0} - {1}", 
                     "AssetId", assetInfo.AssetId);
@@ -114,6 +115,7 @@ namespace SaleDeedRegistry.Desktop.Asset
         private void FrmCreateAsset_Load(object sender, EventArgs e)
         {
             lblAssetId.Visible = false;
+            btnCopyAssetId.Enabled = false;
             LoadPersons();
         }
 
@@ -125,6 +127,13 @@ namespace SaleDeedRegistry.Desktop.Asset
                 cmbPropertyOwner.Items.Add(string.Format("{0}-{1}-{2}",
                     person.Id, $"{person.FirstName} {person.LastName}",
                     person.Aaddhar));
+            }
+        }
+
+        private void btnCopyAssetId_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(lblAssetId.Text.Trim())){
+                Clipboard.SetText(lblAssetId.Text.Replace("AssetId -", "").Trim());
             }
         }
     }

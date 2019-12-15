@@ -35,12 +35,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.locationInfoUserControl1 = new SaleDeedRegistry.Desktop.UserControls.LocationInfoUserControl();
             this.assetInfoUserControl1 = new SaleDeedRegistry.Desktop.UserControls.AssetInfoUserControl();
+            this.btnCopyAssetId = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCreate
             // 
             this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.Location = new System.Drawing.Point(923, 558);
+            this.btnCreate.Location = new System.Drawing.Point(939, 558);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(192, 61);
             this.btnCreate.TabIndex = 4;
@@ -109,6 +110,17 @@
             this.assetInfoUserControl1.Size = new System.Drawing.Size(672, 604);
             this.assetInfoUserControl1.TabIndex = 7;
             // 
+            // btnCopyAssetId
+            // 
+            this.btnCopyAssetId.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopyAssetId.Location = new System.Drawing.Point(709, 558);
+            this.btnCopyAssetId.Name = "btnCopyAssetId";
+            this.btnCopyAssetId.Size = new System.Drawing.Size(192, 61);
+            this.btnCopyAssetId.TabIndex = 11;
+            this.btnCopyAssetId.Text = "Copy Asset Id";
+            this.btnCopyAssetId.UseVisualStyleBackColor = true;
+            this.btnCopyAssetId.Click += new System.EventHandler(this.btnCopyAssetId_Click);
+            // 
             // FrmCreateAsset
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -116,6 +128,7 @@
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.BackgroundImage = global::SaleDeedRegistry.Desktop.Properties.Resources.light_blue_background;
             this.ClientSize = new System.Drawing.Size(1371, 674);
+            this.Controls.Add(this.btnCopyAssetId);
             this.Controls.Add(this.locationInfoUserControl1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbPropertyOwner);
@@ -140,5 +153,6 @@
         private System.Windows.Forms.ComboBox cmbPropertyOwner;
         private System.Windows.Forms.Label label1;
         private UserControls.LocationInfoUserControl locationInfoUserControl1;
+        private System.Windows.Forms.Button btnCopyAssetId;
     }
 }
