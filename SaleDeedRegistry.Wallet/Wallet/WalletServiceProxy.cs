@@ -9,7 +9,8 @@ namespace SaleDeedRegistry.Wallet.Wallet
     public interface IWalletServiceProxy
     {
         string CreateMnemonic(string languge, int wordcount = 24);
-        bool CreateWallet(string walletName, string walletPassword);
+        bool CreateWallet(string mnemonic, string password,
+           string passphrase, string name);
         bool LoadWallet(string walletName, string walletPassword);
         bool RecoverWallet(string walletName, string walletPassword,
             string mnemonic, DateTime creationDate);
@@ -50,20 +51,25 @@ namespace SaleDeedRegistry.Wallet.Wallet
         }
 
         /// <summary>
-        /// Create a wallet using the specified Wallet Name & Password
+        /// Create a wallet 
         /// </summary>
-        /// <param name="walletName">Wallet Name</param>
-        /// <param name="walletPassword">Wallet Password</param>
+        /// <param name="mnemonic">Mnemonic</param>
+        /// <param name="password">Wallet Password</param>
+        /// <param name="passphrase">Wallet PassPhrase</param>
+        /// <param name="name">Wallet Name</param>
         /// <returns>True/False</returns>
-        public bool CreateWallet(string walletName, string walletPassword)
+        public bool CreateWallet(string mnemonic, string password, 
+            string passphrase, string name)
         {
             var client = new RestClient($"{baseUrl}/api/wallet/create");
             var request = new RestRequest(Method.POST);
             request.AddHeader("Content-Type", "application/json");
 
             dynamic expando = new ExpandoObject();
-            expando.password = walletPassword;
-            expando.name = walletName;
+            expando.password = password;
+            expando.name = name;
+            expando.mnemonic = mnemonic;
+            expando.passphrase = passphrase;
 
             request.AddJsonBody(expando);
             IRestResponse response = client.Execute(request);

@@ -1,7 +1,7 @@
-﻿using SaleDeedRegistry.Wallet.Wallet;
-using System;
+﻿using System;
 using System.Configuration;
 using System.Windows.Forms;
+using SaleDeedRegistry.Wallet.Wallet;
 
 namespace SaleDeedRegistry.Wallet
 {
@@ -18,10 +18,36 @@ namespace SaleDeedRegistry.Wallet
         {
             try
             {
+                if (string.IsNullOrEmpty(txtMnemonic.Text))
+                {
+                    MessageBox.Show("Please specify the Mnemonic", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtMnemonic.Focus();
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(txtWalletName.Text))
+                {
+                    MessageBox.Show("Please specify the Wallet Name", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtWalletName.Focus();
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(txtPassword.Text))
+                {
+                    MessageBox.Show("Please specify the Wallet Password", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtPassword.Focus();
+                    return;
+                }
+
+
                 string url = ConfigurationManager.AppSettings.Get("StratisNodeBaseUrl");
                 IWalletServiceProxy walletServiceProxy = new WalletServiceProxy(url);
-                var response = walletServiceProxy.CreateWallet(txtUserName.Text.Trim(),
-                    txtPassword.Text.Trim());
+                var response = walletServiceProxy.CreateWallet(txtMnemonic.Text.Trim(),
+                    txtPassword.Text.Trim(), txtPassphrase.Text.Trim(),
+                    txtWalletName.Text.Trim());
                 if (response)
                 {
                     MessageBox.Show("Successful");
