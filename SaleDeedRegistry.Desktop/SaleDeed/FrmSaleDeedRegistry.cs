@@ -206,6 +206,7 @@ namespace SaleDeedRegistry.Desktop.SaleDeed
                 btnTransferOwnership.Enabled = false;
                 
                 btnReApply.Enabled = true;
+                btnRejectApplication.Enabled = false;
             }
         }
 
@@ -216,7 +217,7 @@ namespace SaleDeedRegistry.Desktop.SaleDeed
             if (receiptResponse != null && receiptResponse.success)
             {
                 OutputResponseInformation(receiptResponse);
-                lblState.Text = ApplicationRejected;
+                lblState.Text = InProgressState;
 
                 btnStartReviewProcess.Enabled = false;
                 btnCompleteReviewProcess.Enabled = false;
@@ -245,14 +246,23 @@ namespace SaleDeedRegistry.Desktop.SaleDeed
         /// <param name="propertyStateType">PropertyStateType</param>
         private void SetStates(PropertyStateType propertyStateType)
         {
+            // First disable all State/Action Buttons
             DisableStateButtons();
+
             if(propertyStateType == PropertyStateType.NotStarted)
             {
                 btnInitApplication.Enabled = true;
             }
             else
             {
-                stateButtons[(int)propertyStateType].Enabled = true;
+                if(propertyStateType == PropertyStateType.Rejected)
+                {
+                    btnReApply.Enabled = true;
+                }
+                else
+                {
+                    stateButtons[(int)propertyStateType].Enabled = true;
+                }
             }
         }
 

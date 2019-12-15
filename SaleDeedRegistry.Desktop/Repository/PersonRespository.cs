@@ -75,7 +75,7 @@ namespace SaleDeedRegistry.Desktop.Repository
         public int GetLastId()
         {
             var db = new SQLiteConnection(new SQLitePlatformWin32(), path);
-            return db.ExecuteScalar<int>("SELECT rowid from AssetPersonInfo order" +
+            return db.ExecuteScalar<int>("SELECT rowid from PersonInfo order" +
                 " by ROWID DESC limit 1");
         }
     }

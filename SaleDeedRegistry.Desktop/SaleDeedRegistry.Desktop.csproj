@@ -140,11 +140,11 @@
     <Compile Include="SaleDeed\FrmSaleDeedRegistry.Designer.cs">
       <DependentUpon>FrmSaleDeedRegistry.cs</DependentUpon>
     </Compile>
-    <Compile Include="Search\AssetViewModel.cs" />
-    <Compile Include="Search\FrmAssetSearch.cs">
+    <Compile Include="Asset\AssetViewModel.cs" />
+    <Compile Include="Asset\FrmAssetSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Search\FrmAssetSearch.Designer.cs">
+    <Compile Include="Asset\FrmAssetSearch.Designer.cs">
       <DependentUpon>FrmAssetSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="Signature\FrmSignaturePad.cs">
@@ -195,7 +195,7 @@
     <EmbeddedResource Include="SaleDeed\FrmSaleDeedRegistry.resx">
       <DependentUpon>FrmSaleDeedRegistry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Search\FrmAssetSearch.resx">
+    <EmbeddedResource Include="Asset\FrmAssetSearch.resx">
       <DependentUpon>FrmAssetSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Signature\FrmSignaturePad.resx">

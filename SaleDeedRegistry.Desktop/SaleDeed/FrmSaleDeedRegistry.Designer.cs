@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSaleDeedRegistry));
             this.btnInitApplication = new System.Windows.Forms.Button();
             this.btnStartReviewProcess = new System.Windows.Forms.Button();
@@ -50,6 +51,7 @@
             this.btnReApply = new System.Windows.Forms.Button();
             this.lblState = new System.Windows.Forms.Label();
             this.btnGetApplicationState = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // btnInitApplication
@@ -114,6 +116,7 @@
             this.txtAssetID.Name = "txtAssetID";
             this.txtAssetID.Size = new System.Drawing.Size(411, 38);
             this.txtAssetID.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.txtAssetID, "The Unique Property Asset Id");
             // 
             // label2
             // 
@@ -122,9 +125,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 32);
+            this.label2.Size = new System.Drawing.Size(138, 32);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Asset ID : ";
+            this.label2.Text = "Asset Id : ";
             // 
             // richTextBox1
             // 
@@ -212,6 +215,7 @@
             this.txtBuyerAddress.Name = "txtBuyerAddress";
             this.txtBuyerAddress.Size = new System.Drawing.Size(411, 38);
             this.txtBuyerAddress.TabIndex = 16;
+            this.toolTip1.SetToolTip(this.txtBuyerAddress, "Please key in the Buyer Wallet Address");
             // 
             // txtSellerAddress
             // 
@@ -220,6 +224,7 @@
             this.txtSellerAddress.Name = "txtSellerAddress";
             this.txtSellerAddress.Size = new System.Drawing.Size(411, 38);
             this.txtSellerAddress.TabIndex = 18;
+            this.toolTip1.SetToolTip(this.txtSellerAddress, "Please key in the Owner or Seller Wallet Address");
             // 
             // label9
             // 
@@ -280,6 +285,7 @@
             this.btnGetApplicationState.Size = new System.Drawing.Size(219, 56);
             this.btnGetApplicationState.TabIndex = 22;
             this.btnGetApplicationState.Text = "Get State";
+            this.toolTip1.SetToolTip(this.btnGetApplicationState, "Gets the Application State");
             this.btnGetApplicationState.UseVisualStyleBackColor = false;
             this.btnGetApplicationState.Click += new System.EventHandler(this.btnGetApplicationState_Click);
             // 
@@ -343,5 +349,6 @@
         private System.Windows.Forms.Button btnReApply;
         private System.Windows.Forms.Label lblState;
         private System.Windows.Forms.Button btnGetApplicationState;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

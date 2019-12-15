@@ -24,6 +24,7 @@ namespace SaleDeedRegistry.Desktop.Search
             assetManagementRepository = new AssetManagementRepository(dbPath);
             personRespository = new PersonRespository(dbPath);
 
+            this.WindowState = FormWindowState.Maximized;
             assetCollection = new List<AssetViewModel>();
             InitDataGridView();
         }
