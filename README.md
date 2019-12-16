@@ -2,6 +2,16 @@
 
 The Sale Deed Registry, A based smart contract application was inspired by the "Indian" government. Currently, most of these aspects are done with the combination of tons of paperwork and some electronic. Though few states went ahead and implemented a fully electronic way of filing the submission for the "Sale Deed", however, it's taking a significant amount of time for the whole process to complete.
 
+## Realtime Testing and Getting your hands dirty
+
+Sale Deed Registry Console App Testing
+
+https://github.com/ranjancse26/Stratis-SaleDeedRegistry/wiki/Sale-Deed-Registry---Console-Testing-Instructions
+
+Sale Deed Registry Windows Form App Testing
+
+https://github.com/ranjancse26/Stratis-SaleDeedRegistry/wiki/Sale-Deed-Registry---Windows-Form-Testing-Instructions
+
 ## What it does
 
 The Sale Deed Registry as the name says, it's responsible for handling the sale deed fulfillment between the seller and the buyer. The main actors of the system are - Buyer, Seller, and Payee.
@@ -517,16 +527,6 @@ Below is the code snippet on how we get the SaleDeedRegistry Smart Contract Appl
             }
         }
 ```
-
-## Realtime Testing and Getting your hands dirty
-
-Sale Deed Registry Console App Testing
-
-https://github.com/ranjancse26/Stratis-SaleDeedRegistry/wiki/Sale-Deed-Registry---Console-Testing-Instructions
-
-Sale Deed Registry Windows Form App Testing
-
-https://github.com/ranjancse26/Stratis-SaleDeedRegistry/wiki/Sale-Deed-Registry---Windows-Form-Testing-Instructions
 
 ## Challenges I ran into
 
