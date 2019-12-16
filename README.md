@@ -6,14 +6,6 @@ The Sale Deed Registry, A based smart contract application was inspired by the "
 
 The Sale Deed Registry as the name says, it's responsible for handling the sale deed fulfillment between the seller and the buyer. The main actors of the system are - Buyer, Seller, and Payee.
 
-## Where can I download Source Code?
-
-Please find the complete source code of the Sale Deed Registry Contract here - 
-
-https://github.com/ranjancse26/Stratis-SaleDeedRegistry/
-
-![alt text](https://raw.githubusercontent.com/ranjancse26/Stratis-SaleDeedRegistry/master/SaleDeedRegistry-Images/SourceCode.png "SaleDeedRegistry Source Code")
-
 ## How I built it
 
 The heart of the "Sale Deed Registry" is based on the Stratis Smart Contract. 
