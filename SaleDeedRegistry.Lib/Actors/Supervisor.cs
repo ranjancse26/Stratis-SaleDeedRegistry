@@ -39,9 +39,11 @@ namespace SaleDeedRegistry.Lib.Actors
                 GasLimit = gasLimit,
                 Amount = amount,
                 Sender = sender,
+                BuyerAddress = buyer,
                 FeeAmount = fee,
                 WalletName = walletName,
                 WalletPassword = walletPassword,
+                OwnerAddress = propertyOwner,
                 AssetId = assetId
             };
 
