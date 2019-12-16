@@ -89,14 +89,12 @@ namespace SaleDeedRegistry.Desktop.UserControls
                 if (signatureBox.Image == null)
                     return string.Empty;
 
-                using (Image image = signatureBox.Image)
+                Image image = signatureBox.Image;
+                using (MemoryStream memoryStream = new MemoryStream())
                 {
-                    using (MemoryStream memoryStream = new MemoryStream())
-                    {
-                        image.Save(memoryStream, image.RawFormat);
-                        byte[] imageBytes = memoryStream.ToArray();
-                        return Convert.ToBase64String(imageBytes);
-                    }
+                    image.Save(memoryStream, image.RawFormat);
+                    byte[] imageBytes = memoryStream.ToArray();
+                    return Convert.ToBase64String(imageBytes);
                 }
             }
         }
@@ -105,7 +103,7 @@ namespace SaleDeedRegistry.Desktop.UserControls
         /// <summary>
         /// Custom Validate the fields and throw error message
         /// </summary>
-        public bool Validate()
+        public new bool Validate()
         {
             if (string.IsNullOrEmpty(txtPropertyNumber.Text.Trim()))
             {

@@ -103,8 +103,6 @@ namespace SaleDeedRegistry.Desktop.Asset
                 lblAssetId.Visible = true;
                 lblAssetId.Text = string.Format("{0} - {1}", 
                     "AssetId", assetInfo.AssetId);
-
-                MessageBox.Show("Saved Successfully!");
             }
             catch(Exception ex)
             {
