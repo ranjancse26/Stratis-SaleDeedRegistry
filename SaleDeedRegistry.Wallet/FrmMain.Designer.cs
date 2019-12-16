@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.btnWalletBalance = new System.Windows.Forms.Button();
             this.btnWalletInfo = new System.Windows.Forms.Button();
             this.btnRecoverWallet = new System.Windows.Forms.Button();
@@ -40,7 +39,7 @@
             // 
             // btnWalletBalance
             // 
-            this.btnWalletBalance.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnWalletBalance.BackgroundImage")));
+            this.btnWalletBalance.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnWalletBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWalletBalance.ForeColor = System.Drawing.Color.White;
             this.btnWalletBalance.Location = new System.Drawing.Point(49, 281);
@@ -48,12 +47,12 @@
             this.btnWalletBalance.Size = new System.Drawing.Size(296, 143);
             this.btnWalletBalance.TabIndex = 5;
             this.btnWalletBalance.Text = "Wallet Balance";
-            this.btnWalletBalance.UseVisualStyleBackColor = true;
+            this.btnWalletBalance.UseVisualStyleBackColor = false;
             this.btnWalletBalance.Click += new System.EventHandler(this.btnWalletBalance_Click);
             // 
             // btnWalletInfo
             // 
-            this.btnWalletInfo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnWalletInfo.BackgroundImage")));
+            this.btnWalletInfo.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnWalletInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWalletInfo.ForeColor = System.Drawing.Color.White;
             this.btnWalletInfo.Location = new System.Drawing.Point(516, 281);
@@ -61,13 +60,12 @@
             this.btnWalletInfo.Size = new System.Drawing.Size(296, 143);
             this.btnWalletInfo.TabIndex = 4;
             this.btnWalletInfo.Text = "Wallet Info";
-            this.btnWalletInfo.UseVisualStyleBackColor = true;
+            this.btnWalletInfo.UseVisualStyleBackColor = false;
             this.btnWalletInfo.Click += new System.EventHandler(this.btnWalletInfo_Click);
             // 
             // btnRecoverWallet
             // 
-            this.btnRecoverWallet.BackColor = System.Drawing.Color.AliceBlue;
-            this.btnRecoverWallet.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRecoverWallet.BackgroundImage")));
+            this.btnRecoverWallet.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnRecoverWallet.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRecoverWallet.ForeColor = System.Drawing.Color.White;
             this.btnRecoverWallet.Location = new System.Drawing.Point(984, 281);
@@ -80,7 +78,7 @@
             // 
             // btnLoadWallet
             // 
-            this.btnLoadWallet.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLoadWallet.BackgroundImage")));
+            this.btnLoadWallet.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnLoadWallet.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoadWallet.ForeColor = System.Drawing.Color.White;
             this.btnLoadWallet.Location = new System.Drawing.Point(984, 48);
@@ -88,12 +86,12 @@
             this.btnLoadWallet.Size = new System.Drawing.Size(296, 146);
             this.btnLoadWallet.TabIndex = 2;
             this.btnLoadWallet.Text = "Load Wallet";
-            this.btnLoadWallet.UseVisualStyleBackColor = true;
+            this.btnLoadWallet.UseVisualStyleBackColor = false;
             this.btnLoadWallet.Click += new System.EventHandler(this.btnLoadWallet_Click);
             // 
             // btnCreateWallet
             // 
-            this.btnCreateWallet.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCreateWallet.BackgroundImage")));
+            this.btnCreateWallet.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnCreateWallet.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateWallet.ForeColor = System.Drawing.Color.White;
             this.btnCreateWallet.Location = new System.Drawing.Point(516, 48);
@@ -101,12 +99,12 @@
             this.btnCreateWallet.Size = new System.Drawing.Size(296, 146);
             this.btnCreateWallet.TabIndex = 1;
             this.btnCreateWallet.Text = "Create Wallet";
-            this.btnCreateWallet.UseVisualStyleBackColor = true;
+            this.btnCreateWallet.UseVisualStyleBackColor = false;
             this.btnCreateWallet.Click += new System.EventHandler(this.btnCreateWallet_Click);
             // 
             // btnCreateMnuemonic
             // 
-            this.btnCreateMnuemonic.BackgroundImage = global::SaleDeedRegistry.Wallet.Properties.Resources.button_blue;
+            this.btnCreateMnuemonic.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnCreateMnuemonic.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateMnuemonic.ForeColor = System.Drawing.Color.White;
             this.btnCreateMnuemonic.Location = new System.Drawing.Point(49, 48);
@@ -114,12 +112,12 @@
             this.btnCreateMnuemonic.Size = new System.Drawing.Size(296, 146);
             this.btnCreateMnuemonic.TabIndex = 0;
             this.btnCreateMnuemonic.Text = "Create Mnemonic";
-            this.btnCreateMnuemonic.UseVisualStyleBackColor = true;
+            this.btnCreateMnuemonic.UseVisualStyleBackColor = false;
             this.btnCreateMnuemonic.Click += new System.EventHandler(this.btnCreateMnuemonic_Click);
             // 
             // btnTransactionHistory
             // 
-            this.btnTransactionHistory.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnTransactionHistory.BackgroundImage")));
+            this.btnTransactionHistory.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnTransactionHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTransactionHistory.ForeColor = System.Drawing.Color.White;
             this.btnTransactionHistory.Location = new System.Drawing.Point(49, 506);
@@ -127,7 +125,7 @@
             this.btnTransactionHistory.Size = new System.Drawing.Size(296, 143);
             this.btnTransactionHistory.TabIndex = 6;
             this.btnTransactionHistory.Text = "Transaction History";
-            this.btnTransactionHistory.UseVisualStyleBackColor = true;
+            this.btnTransactionHistory.UseVisualStyleBackColor = false;
             this.btnTransactionHistory.Click += new System.EventHandler(this.btnTransactionHistory_Click);
             // 
             // FrmMain
