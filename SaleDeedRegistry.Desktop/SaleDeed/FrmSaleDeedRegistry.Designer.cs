@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSaleDeedRegistry));
             this.btnInitApplication = new System.Windows.Forms.Button();
             this.btnStartReviewProcess = new System.Windows.Forms.Button();
             this.btnCompleteReviewProcess = new System.Windows.Forms.Button();
@@ -293,7 +292,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::SaleDeedRegistry.Desktop.Properties.Resources.light_blue_background;
             this.ClientSize = new System.Drawing.Size(1415, 844);
             this.Controls.Add(this.btnGetApplicationState);
             this.Controls.Add(this.lblState);
