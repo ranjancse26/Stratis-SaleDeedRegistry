@@ -10,7 +10,7 @@ The Sale Deed Registry as the name says, it's responsible for handling the sale 
 
 The heart of the "Sale Deed Registry" is based on the Stratis Smart Contract. 
 
-In addition to maintaining the Sale Deed record or information about the property as an asset within the blockchain via Smart Contract, it's is also responsible for handling the fee payment and other necessary sale deed verification checks such as "Encumbrance" clearance etc. The system is designed with the contract as a core requirement and the actors just operating the contract with the required state being maintained within the contract. All operations are executed or handled based on the qualified state.
+In addition to maintaining the Sale Deed record or information about the property as an asset within the blockchain via Smart Contract, it's is also responsible for handling the fee payment and other necessary sale deed verification checks such as "Encumbrance" clearance, etc. The system is designed with the contract as a core requirement and the actors just operating the contract with the required state being maintained within the contract. All operations are executed or handled based on the qualified state.
 
 The following are the "Sale Deed Registry" Smart Contract States
 
@@ -24,7 +24,7 @@ The following are the "Sale Deed Registry" Smart Contract States
 <li>Transfer Ownership</li>
 </ol>
 
-Here's the high-level overview about the Sale Deed Application Process coded on a Console App to demonstrate the end to end workflow.
+Here's the high-level overview of the Sale Deed Application Process coded on a Console App to demonstrate the end to end workflow.
 
 The following is the Sale Deed Registry Console App code snippet. It shows the high-level actors and their interactions with the SaleDeedRegistry Stratis Smart Contract.
 
@@ -86,15 +86,15 @@ Below is the snapshot of the SaleDeedRegistry .NET Solution. It's coded using VS
 
 **SaleDeedRegistry.ApiClient** - A lightweight library that deals with the SaleDeedRegistry Smart Contract communication via the Swagger based contract API. Any application that consumes the contract will make use of this library and interact or programmatically execute the contract operations with ease.
 
-**SaleDeedRegistry.Console** - It's a console app or a sample that's used for demonstrating the SaleDeedRegistry contract capabilities. The console app is designed with a minimal code by fully utilizing the custom libraries coded as part of the solution.
+**SaleDeedRegistry.Console** - It's a console app or a sample that's used for demonstrating the SaleDeedRegistry contract capabilities. The console app is designed with minimal code by fully utilizing the custom libraries coded as part of the solution.
 
 **SaleDeedRegistry.Contract** - The Stratis based Smart Contract Library consists of the SaleDeedRegistry contract.
 
 **SaleDeedRegistry.Desktop** - The Sale Deed Registry Desktop Application that deals with the Property Management and Sale Deed Registration. The Government Supervisor who's responsible for handling the Sale Deed and property ownership will make use of this desktop app and perform all the SaleDeedRegistry Smart Contract operations with ease.
 
-**SaleDeedRegistry.Domain** - The Domain library consists of all the SaleDeedRegistry domain entities. The domain gives a complete overview on the domain entities that's being used to fulfill the Sale Deed transaction.
+**SaleDeedRegistry.Domain** - The Domain library consists of all the SaleDeedRegistry domain entities. The domain gives a complete overview of the domain entities that are being used to fulfill the Sale Deed transaction.
 
-**SaleDeedRegistry.Lib** - It's a class library, the core or heart of our solution. This library has all the required or necessary things for interacting with the SaleDeedRegistry smart contract. Actors and those responsible for performing the contract operation. Also consists of helper class that deals with the generation of unique id and reading the configuration items.
+**SaleDeedRegistry.Lib** - It's a class library, the core or the heart of our solution. This library has all the required or necessary things for interacting with the SaleDeedRegistry smart contract. Actors and those responsible for performing the contract operation. It also consists of a helper class that deals with the generation of unique id and reading the configuration items.
 
 **SaleDeedRegistry.Tests** - The SaleDeedRegistry smart contract unit test project coding using xunit and moq. It has all the facts for testing the contract functionalities. It's a complete unit test solution that executes all of the contract operations and verifies the expectation.
 
@@ -102,7 +102,7 @@ Below is the snapshot of the SaleDeedRegistry .NET Solution. It's coded using VS
 
 ### State-Based Smart Contract
 
-We are dealing with the property sale deed transaction and it involves the government officials or supervisors to handle necessary aspects like review, confirm and handle application fee payment and finally it will lead to the transfer of ownership. It's a transaction between the property buyer and seller or the owner.
+We are dealing with the property sale deed transaction and it involves the government officials or supervisors to handle necessary aspects like the review, confirm and handle application fee payment and finally, it will lead to the transfer of ownership. It's a transaction between the property buyer and seller or the owner.
 
 The SaleDeedRegistry smart contract a state-driven one. The contact operations are executed by verifying the application state. The application also utilizes and navigates between the state and performs all the Sale Deed related contract operations with ease. At a given point for time, based on the Asset that involves in the Sale Deed transaction, we'll always have a specific application state.
 
@@ -136,7 +136,9 @@ Here's you will see the details about the well-known design patterns and princip
 
 2) **SOLID principles** - The SaleDeedRegistry solution is coded with the SOLID principles in mind. The libraries and applications are coded with the SOLID principles to take advantage of the code readability, easy to extend and fix issues. 
 
-3) **Facade Pattern** - We have a Sale Deed Facade responsible for handling or executing the SaleDeedRegistry contract operations. Internally, it's making use of the Stratis Contract Swagger API. The Facade simplifies or hides the contract calls. In addition it also deals with the Stratis Receipt API calls and hides all the complexities of dealing with the subsystem interaction. The Facade lets the consumers to easily interact with the SaleDeedRegistry contract. It also helps the developers to extend the solution with ease.
+3) **Facade Pattern** - We have a Sale Deed Facade responsible for handling or executing the SaleDeedRegistry contract operations. Internally, it's making use of the Stratis Contract Swagger API. The Facade simplifies or hides the contract calls. In addition, it also deals with the Stratis Receipt API calls and hides all the complexities of dealing with the subsystem interaction. The Facade lets the consumers to easily interact with the SaleDeedRegistry contract. It also helps the developers to extend the solution with ease.
+
+4) **Command Pattern** - The Command Pattern is being implemented for interacting with the SaleDeedRegistry Smart Contract. The contract is driven by the State and hence the command pattern suits them best in performing the contract actions. Basically, we are encapsulating the Sale Deed Request object and then executing it to perform a specific operation based on a given state.
 
 ### Compilation of the Sale Deed Registry Smart Contract
 
@@ -186,7 +188,7 @@ The Unit Test consists of a Test Class - "SaleDeedContractTest" having a collect
         }
 ```
 
-Below is the code snippet that demonstrates on how one can handle the contract Init operation.
+Below is the code snippet that demonstrates how one can handle the contract Init operation.
 
 ```
         [Fact]
@@ -210,7 +212,7 @@ Below is the code snippet that demonstrates on how one can handle the contract I
 
 ### SaleDeedRegistry Contract Deployment
 
-Let's see how one can easily compile and deploy the Stratis Smart Contract. Here's it's more specific to compilation of the SaleDeedRegistry smart contract and it's deployment.
+Let's see how one can easily compile and deploy the Stratis Smart Contract. Here's it's more specific to the compilation of the SaleDeedRegistry smart contract and it's deployment.
 
 We'll be making use of a Statis tool - Stratis.SmartContracts.Tools.Sct.exe for validating and generating the Byte Code for our smart contract.
 
@@ -224,7 +226,7 @@ Below is what you should see
 
 Copy the ByteCode and let's deploy the same on to the Stratis Cirrus Core.
 
-1) Generating an Address - This is the first step that one has to do. The SaleDeedRegistry smart contract depends on the Payee Address. The Payee here is the government for which they will create an unique address for the first where the citizens will use to for paying the fee payments etc.
+1) Generating an Address - This is the first step that one has to do. The SaleDeedRegistry smart contract depends on the Payee Address. The Payee here is the government for which they will create a unique address for the first where the citizens will use to for paying the fee payments etc.
 
 Here's how one can generate a unique address.
 
@@ -253,9 +255,9 @@ https://raw.githubusercontent.com/ranjancse26/Stratis-SaleDeedRegistry/master/Sa
 
 **Please note - The Console App config needs to be updated for Contract Address and Sender Address. The Buyer, Owner and Payee Address also needs to be created.**
 
-Testing the console app is a really simple thing. That's because of the way how it's coded with "Actors". One just needs to set the application configuration and then hit a breakpoint to debug or directly run the same. You should be able to see the SaleDeedRegistry contract operations being called and the Receipt Response is being displayed on the console. If everything goes well, you should be able to see the application state set to - "Approved". Which means the sale deed registry operations have been successfully executed and the ownership has to transferred from the seller to buyer.
+Testing the console app is a really simple thing. That's because of the way how it's coded with "Actors". One just needs to set the application configuration and then hit a breakpoint to debug or directly run the same. You should be able to see the SaleDeedRegistry contract operations being called and the Receipt Response is being displayed on the console. If everything goes well, you should be able to see the application state set to - "Approved". This means the sale deed registry operations have been successfully executed and the ownership has to transfer from the seller to buyer.
 
-Here is the application configuration. There are default app settings keys and there are important configurable elements like Sender, Buyer, Owner/Seller, Payee and Contract Address that one needs to correctly as per the contract deployment and the wallet address creation for Buyer, Seller and the Payee.
+Here is the application configuration. There are default app settings keys and there are important configurable elements like Sender, Buyer, Owner/Seller, Payee, and Contract Address that one needs to correctly as per the contract deployment and the wallet address creation for Buyer, Seller, and the Payee.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -317,7 +319,7 @@ The Application Fee is nothing but the Sale Deed Registration fee, it's a config
   </appSettings>  
 ```
 
-The follow are the application workflow or steps that one needs to take care for performing a successful sale deed registration.
+The following are the application workflow or steps that one needs to take care of performing a successful sale deed registration.
 
 1. Create Person Info
 2. Create Asset and make a note on the Asset Id.
@@ -332,11 +334,11 @@ Below is the screen for creating person info.
 https://raw.githubusercontent.com/ranjancse26/Stratis-SaleDeedRegistry/master/SaleDeedRegistry-Images/WinForm/CreateOrUpdatePerson.png
  "Create or Update Person Info")
 
-Two important things you may not be familiar. i.e Aaddhar and PAN. Here's the definition of the same.
+Two important things you may not be familiar with. i.e Aaddhar and PAN. Here's the definition of the same.
 
 **Aaddhar** - An unique identity. The Unique Identification Authority of India (UIDAI) has mandated to issue an easily verifiable 12 digit random number as Unique Identity - Aadhaar to all Residents of India. Ex: 499118665246
 
-**PAN** - Permanent Account Number. Used for tax purpose. A permanent account number (PAN) is a ten-character alphanumeric identifier, issued in the form of a laminated "PAN card", by the Indian Income Tax Department, to any "person" who applies for it or to whom the department allots the number without an application. Reference - https://en.wikipedia.org/wiki/Permanent_account_number. Ex: AAAPL1234C
+**PAN** - Permanent Account Number. Used for tax purposes. A permanent account number (PAN) is a ten-character alphanumeric identifier, issued in the form of a laminated "PAN card", by the Indian Income Tax Department, to any "person" who applies for it or to whom the department allots the number without an application. Reference - https://en.wikipedia.org/wiki/Permanent_account_number. Ex: AAAPL1234C
 
 Once the personal information has been created. The next thing to do is the Asset Creation.
 
@@ -372,7 +374,7 @@ https://raw.githubusercontent.com/ranjancse26/Stratis-SaleDeedRegistry/master/Sa
 
 ## Sale Deed Registry Wallet 
 
-The SaleDeedRegistry.Wallet is a Windows Forms project created for managing the Stratis Wallet using the Stratis Node V1 Wallet API. It's used for creating a new wallet, loading the loading to make sure it's good. One can also restore wallet or check balance. Verify the transaction by checking the history and then filtering the same. Lot many thing can be done using this wallet management app.
+The SaleDeedRegistry.Wallet is a Windows Forms project created for managing the Stratis Wallet using the Stratis Node V1 Wallet API. It's used for creating a new wallet, loading the loading to make sure it's good. One can also restore wallet or check balance. Verify the transaction by checking the history and then filtering the same. A lot many things can be done using this wallet management app.
 
 Below are some of the application screenshots. 
 
@@ -515,6 +517,16 @@ Below is the code snippet on how we get the SaleDeedRegistry Smart Contract Appl
             }
         }
 ```
+
+## Realtime Testing and Getting your hands dirty
+
+Sale Deed Registry Console App Testing
+
+https://github.com/ranjancse26/Stratis-SaleDeedRegistry/wiki/Sale-Deed-Registry---Console-Testing-Instructions
+
+Sale Deed Registry Windows Form App Testing
+
+https://github.com/ranjancse26/Stratis-SaleDeedRegistry/wiki/Sale-Deed-Registry---Windows-Form-Testing-Instructions
 
 ## Challenges I ran into
 
